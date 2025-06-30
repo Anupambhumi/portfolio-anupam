@@ -893,24 +893,21 @@ header .navbar ul li a:hover {
 /* Media queries - Responsive timeline on screens less than 600px wide */
 
 .publications {
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 1rem 2rem;
   background-color: #f9f9f9;
   text-align: center;
 }
-
 .heading {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: #333;
 }
-
 .publications-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
-
 .publication-box {
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
   border: 2px solid #ddd;
@@ -921,39 +918,32 @@ header .navbar ul li a:hover {
   width: 100%;
   transition: transform 0.3s ease;
 }
-
 .publication-box:hover {
   transform: translateY(-5px);
 }
-
 .pub-source {
   font-size: 2rem;
   color: #0077b6;
   margin-bottom: 1rem;
 }
-
 .pub-title a {
   font-size: 1.6rem;
   color: #111;
   text-decoration: none;
   font-weight: bold;
 }
-
 .pub-title a:hover {
   color: #0077b6;
   text-decoration: underline;
 }
-
 .pub-date {
   margin-top: 1rem;
   font-size: 1.3rem;
   color: #666;
 }
-
 .morebtn {
   margin-top: 3rem;
 }
-
 .morebtn .btn {
   background-color: #0077b6;
   color: #fff;
@@ -963,11 +953,9 @@ header .navbar ul li a:hover {
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
-
 .morebtn .btn:hover {
   background-color: #005f8d;
 }
-
 
 /* experience media queries ends */
 /* experience section ends */
@@ -1265,3 +1253,82 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* Projects section starts */
+#Projects {
+  background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
+  padding: 4rem 2rem;
+}
+#Projects .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+#Projects .card {
+  width: 320px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+#Projects .card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+#Projects .card .img-area {
+  height: 180px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Projects .card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+#Projects .card .content {
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#Projects .card .tag h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+#Projects .card .desc {
+  flex: 1;
+}
+#Projects .card .desc p {
+  font-size: 1.1rem;
+  color: #333;
+}
+#Projects .card .btns {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+#Projects .card .btn {
+  flex: 1;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  #Projects .box-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Projects section ends */
+
+/* Optionally, reduce margin-top of the next section if needed */
+#Publications + section, .publications + section {
+  margin-top: 0 !important;
+  padding-top: 1rem !important;
+}

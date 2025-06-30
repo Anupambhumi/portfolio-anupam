@@ -2,7 +2,7 @@
   {
     "name": "EduVista App",
     "desc": "It's an android app which uses web view component for displaying content. This app provides many different features.",
-    "image": "composey",
+    "image": "app",
     "category": "android",
     "links": {
       "view": "",
@@ -12,7 +12,7 @@
   {
     "name": "Object-Detection-and-Assisting-for-Blind-individuals",
     "desc": "Machine Learning, OpenCV, Tensorflow",
-    "image": "./assets/images/port.png",
+    "image": "Object-detection-Real-world-applications",
     "category": "Machine Learninng Project",
     "links": {
       "view": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals",
@@ -32,17 +32,7 @@
   {
     "name": "AI Powered Logo Recognition System",
     "desc": "Model to recognize Logo of more than 2000 and trained this model using 2 pictures",
-    "image": "foodwebsite",
-    "category": "Machine Learninng Project",
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
-  },
-   {
-    "name": "hsjdkljhsa",
-    "desc": "Model to recognize Logo of more than 2000 and trained this model using 2 pictures",
-    "image": "foodwebsite",
+    "image": "AI-Detection",
     "category": "Machine Learninng Project",
     "links": {
       "view": "#",
