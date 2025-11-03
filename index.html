@@ -472,100 +472,79 @@ fetch('projects/projects.json')
 
 <!-- ✅ Chatbot Iframe Embed -->
     <div id="chatbot-container">
-      <iframe
-        id="chatbot-frame"
-        src="https://chatbot.aicte-india.org/chatbot/"
-        title="Anuvadini Chatbot"
-        scrolling="no"
-        allow="microphone; camera; clipboard-write"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-        referrerpolicy="strict-origin"
-        allowfullscreen
-      ></iframe>
-    </div>
+  <iframe
+    id="chatbot-frame"
+    src="https://chatbot.aicte-india.org/chatbot/"
+    title="Anuvadini Chatbot"
+    scrolling="no"
+    allow="microphone; camera; clipboard-write"
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+    referrerpolicy="strict-origin"
+    allowfullscreen
+  ></iframe>
+</div>
 
     <!-- ✅ Parent-to-Chatbot Communication Script -->
     <script>
-      (function () {
-        const CHATBOT_ORIGIN = "https://chatbot.aicte-india.org";
-        const iframe = document.getElementById("chatbot-frame");
-        const parentHost = window.location.hostname;
-        console.log("🧭 [PARENT] Detected hostname:", parentHost);
+(function () {
+  const CHATBOT_ORIGIN = "https://chatbot.aicte-india.org";
+  const iframe = document.getElementById("chatbot-frame");
+  const parentHost = window.location.hostname;
+  console.log("🧭 [PARENT] Detected hostname:", parentHost);
 
-        let readyReceived = false;
+  let readyReceived = false;
 
-        function sendDocId(label = "") {
-          if (!iframe.contentWindow) {
-            console.warn(
-              "⚠ [PARENT] iframe.contentWindow missing, skipping postMessage"
-            );
-            return;
-          }
-          console.log(
-            📤 [PARENT->IFRAME], Sending doc_id (${label}):,
-            parentHost
-          );
+  function sendDocId(label = "") {
+    if (!iframe.contentWindow) {
+      console.warn("⚠ [PARENT] iframe.contentWindow missing, skipping postMessage");
+      return;
+    }
+    console.log(📤 [PARENT -> IFRAME] Sending doc_id (${label}):, parentHost);
+    iframe.contentWindow.postMessage({ type: "SET_DOC_ID", docId: parentHost }, CHATBOT_ORIGIN);
+  }
 
-          iframe.contentWindow.postMessage(
-            { type: "SET_DOC_ID", docId: parentHost },
-            CHATBOT_ORIGIN
-          );
-        }
+  function handleLoad() {
+    console.log("✅ [PARENT] Iframe loaded");
 
-        function handleLoad() {
-          console.log("✅ [PARENT] Iframe loaded");
+    const trySend = (attempt = 0) => {
+      if (iframe.contentWindow) {
+        sendDocId("onload");
+        setTimeout(() => sendDocId("500ms-delay"), 500);
+        setTimeout(() => sendDocId("1000ms-delay"), 1000);
+      } else if (attempt < 5) {
+        setTimeout(() => trySend(attempt + 1), 200);
+      }
+    };
+    trySend();
+  }
 
-          // ✅ Retry sending doc_id if iframe takes time to be ready
-          const trySend = (attempt = 0) => {
-            if (iframe.contentWindow) {
-              sendDocId("onload");
-              setTimeout(() => sendDocId("500ms-delay"), 500);
-              setTimeout(() => sendDocId("1000ms-delay"), 1000);
-            } else if (attempt < 5) {
-              setTimeout(() => trySend(attempt + 1), 200);
-            }
-          };
-          trySend();
-        }
+  function handleMessage(event) {
+    if (!event.origin.includes("chatbot.aicte-india.org")) {
+      console.warn("🚫 [PARENT] Ignored message from origin:", event.origin);
+      return;
+    }
 
-        function handleMessage(event) {
-          if (!event.origin.includes("chatbot.aicte-india.org")) {
-            console.warn(
-              "🚫 [PARENT] Ignored message from origin:",
-              event.origin
-            );
-            return;
-          }
+    console.log("📨 [PARENT <- IFRAME] Message received:", event.data);
 
-          console.log("📨 [PARENT <- IFRAME] Message received:", event.data);
+    if (event.data?.type === "CHATBOT_READY" && !readyReceived) {
+      readyReceived = true;
+      console.log("🚀 [PARENT] Chatbot ready signal received — sending doc_id");
+      sendDocId("CHATBOT_READY");
+    }
 
-          if (event.data?.type === "CHATBOT_READY" && !readyReceived) {
-            readyReceived = true;
-            console.log(
-              "🚀 [PARENT] Chatbot ready signal received — sending doc_id"
-            );
-            sendDocId("CHATBOT_READY");
-          }
+    if (event.data?.type === "DOC_ID_ACK") {
+      console.log("✅ [PARENT] Chatbot acknowledged doc_id:", event.data.docId);
+    }
 
-          if (event.data?.type === "DOC_ID_ACK") {
-            console.log(
-              "✅ [PARENT] Chatbot acknowledged doc_id:",
-              event.data.docId
-            );
-          }
+    if (event.data?.type === "DOC_ID_AUTO") {
+      console.log("📦 [PARENT] Chatbot auto-sent doc_id:", event.data.docId);
+    }
+  }
 
-          if (event.data?.type === "DOC_ID_AUTO") {
-            console.log(
-              "📦 [PARENT] Chatbot auto-sent doc_id:",
-              event.data.docId
-            );
-          }
-        }
-
-        iframe.addEventListener("load", handleLoad);
-        window.addEventListener("message", handleMessage);
-      })();
-    </script>
+  iframe.addEventListener("load", handleLoad);
+  window.addEventListener("message", handleMessage);
+})();
+</script>
 
 
 </div>
