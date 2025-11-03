@@ -471,7 +471,7 @@ fetch('projects/projects.json')
 
 
 <!-- ✅ Chatbot Iframe Embed -->
-    <div id="chatbot-container">
+    <!-- <div id="chatbot-container">
   <iframe
     id="chatbot-frame"
     src="https://chatbot.aicte-india.org/chatbot/"
@@ -482,10 +482,10 @@ fetch('projects/projects.json')
     referrerpolicy="strict-origin"
     allowfullscreen
   ></iframe>
-</div>
+</div> -->
 
     <!-- ✅ Parent-to-Chatbot Communication Script -->
-    <script>
+    <!-- <script>
 (function () {
   const CHATBOT_ORIGIN = "https://chatbot.aicte-india.org";
   const iframe = document.getElementById("chatbot-frame");
@@ -544,9 +544,9 @@ fetch('projects/projects.json')
   iframe.addEventListener("load", handleLoad);
   window.addEventListener("message", handleMessage);
 })();
-</script>
+</script> -->
 
-
+<script src="https://chatbot.aicte-india.org/embed.js" defer></script>
 </div>
 </body>
 </html>
