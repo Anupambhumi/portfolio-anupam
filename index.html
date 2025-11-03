@@ -13,47 +13,43 @@
     <!-- Favicon -->
     <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
     <title>Portfolio | Anupam</title>
+
+	    <!-- ✅ Chatbot Styles -->
+    <style>
+      #chatbot-container {
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        width: 550px;
+        height: 700px;
+        border-radius: 12px;
+        overflow: hidden;
+        z-index: 1000;
+        background: transparent;
+      }
+
+      #chatbot-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* Optional: fade-in animation */
+      #chatbot-container {
+        opacity: 0;
+        animation: fadeIn 0.4s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
     
 </head>
-<iframe
-  src="https://chatbot.aicte-india.org/chatbot/"
-  id="aicte-chatbot"
-  style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 450px;
-    height: 650px;
-    border: none;
-    border-radius: 16px;
-    z-index: 9999;
-  "
-  allow="microphone; clipboard-read; clipboard-write; camera"
-></iframe>
 
-<script>
-  window.addEventListener("message", function(event) {
-    // Only respond to messages from chatbot
-    if (!event.origin.includes("aicte-india.org")) return;
-
-    if (event.data?.type === "CHATBOT_READY") {
-      const iframe = document.getElementById("aicte-chatbot");
-      const parentUrl = window.location.href;
-      const docId = window.location.hostname;
-
-      iframe.contentWindow.postMessage(
-        {
-          type: "INIT_PARENT_INFO",
-          parentUrl,
-          docId,
-        },
-        "https://chatbot.aicte-india.org"
-      );
-
-      console.log("📤 Sent INIT_PARENT_INFO to chatbot:", docId);
-    }
-  });
-</script>
 <body oncontextmenu="return false">
 
 <!-- pre loader -->
@@ -337,7 +333,7 @@ fetch('projects/projects.json')
     let html = '';
     projects.forEach(project => {
       // Only use the image specified in projects.json
-      const imgSrc = `assets/images/projects/${project.image}.png`;
+      const imgSrc = assets/images/projects/${project.image}.png;
       html += `
         <div class="card box tilt">
           <div class="img-area">
@@ -474,28 +470,104 @@ fetch('projects/projects.json')
 <script src="./assets/js/script.js"></script>
 
 
+<!-- ✅ Chatbot Iframe Embed -->
+    <div id="chatbot-container">
+      <iframe
+        id="chatbot-frame"
+        src="https://chatbot.aicte-india.org/chatbot/"
+        title="Anuvadini Chatbot"
+        scrolling="no"
+        allow="microphone; camera; clipboard-write"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        referrerpolicy="strict-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
 
-<!-- <div style="
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  width: 550px;
-  height: 700px;
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: 1000;
-  background-color: transparent;
-">
-  <iframe
-    src="https://chatbot.aicte-india.org/chatbot/"
+    <!-- ✅ Parent-to-Chatbot Communication Script -->
+    <script>
+      (function () {
+        const CHATBOT_ORIGIN = "https://chatbot.aicte-india.org";
+        const iframe = document.getElementById("chatbot-frame");
+        const parentHost = window.location.hostname;
+        console.log("🧭 [PARENT] Detected hostname:", parentHost);
 
-    width="100%"
-    height="100%"
-    style="border:none; display:block; overflow:hidden;"
-    title="Chatbot"
-    scrolling="no"
-  ></iframe>
-</div> -->
+        let readyReceived = false;
+
+        function sendDocId(label = "") {
+          if (!iframe.contentWindow) {
+            console.warn(
+              "⚠ [PARENT] iframe.contentWindow missing, skipping postMessage"
+            );
+            return;
+          }
+          console.log(
+            📤 [PARENT->IFRAME], Sending doc_id (${label}):,
+            parentHost
+          );
+
+          iframe.contentWindow.postMessage(
+            { type: "SET_DOC_ID", docId: parentHost },
+            CHATBOT_ORIGIN
+          );
+        }
+
+        function handleLoad() {
+          console.log("✅ [PARENT] Iframe loaded");
+
+          // ✅ Retry sending doc_id if iframe takes time to be ready
+          const trySend = (attempt = 0) => {
+            if (iframe.contentWindow) {
+              sendDocId("onload");
+              setTimeout(() => sendDocId("500ms-delay"), 500);
+              setTimeout(() => sendDocId("1000ms-delay"), 1000);
+            } else if (attempt < 5) {
+              setTimeout(() => trySend(attempt + 1), 200);
+            }
+          };
+          trySend();
+        }
+
+        function handleMessage(event) {
+          if (!event.origin.includes("chatbot.aicte-india.org")) {
+            console.warn(
+              "🚫 [PARENT] Ignored message from origin:",
+              event.origin
+            );
+            return;
+          }
+
+          console.log("📨 [PARENT <- IFRAME] Message received:", event.data);
+
+          if (event.data?.type === "CHATBOT_READY" && !readyReceived) {
+            readyReceived = true;
+            console.log(
+              "🚀 [PARENT] Chatbot ready signal received — sending doc_id"
+            );
+            sendDocId("CHATBOT_READY");
+          }
+
+          if (event.data?.type === "DOC_ID_ACK") {
+            console.log(
+              "✅ [PARENT] Chatbot acknowledged doc_id:",
+              event.data.docId
+            );
+          }
+
+          if (event.data?.type === "DOC_ID_AUTO") {
+            console.log(
+              "📦 [PARENT] Chatbot auto-sent doc_id:",
+              event.data.docId
+            );
+          }
+        }
+
+        iframe.addEventListener("load", handleLoad);
+        window.addEventListener("message", handleMessage);
+      })();
+    </script>
+
+
 </div>
 </body>
 </html>
