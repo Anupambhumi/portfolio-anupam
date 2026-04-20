@@ -11,9 +11,23 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
-particlesJS('particles-js',
-  
-  {
+function initParticles() {
+  if (typeof particlesJS === "undefined") {
+    console.log("particlesJS not defined, retrying...");
+    setTimeout(initParticles, 100);
+    return;
+  }
+
+  const container = document.getElementById("particles-js");
+  if (!container) {
+    console.log("particles-js container not found, retrying...");
+    setTimeout(initParticles, 100);
+    return;
+  }
+
+  console.log("Initializing particles.js");
+  particlesJS('particles-js',
+    {
     "particles": {
       "number": {
         "value": 80,
@@ -128,6 +142,12 @@ particlesJS('particles-js',
       "background_repeat": "no-repeat",
       "background_size": "cover"
     }
-  }
+    }
+  );
+}
 
-);
+if (document.readyState === "complete") {
+  initParticles();
+} else {
+  window.addEventListener("load", initParticles);
+}
