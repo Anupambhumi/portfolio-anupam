@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    
+    
+    <!-- Essential Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Anuvadini AI | Make in India, Global AI Translation Tool</title>
+    <meta name="title" content="Anuvadini AI | Make in India, Global AI Translation Tool" />
+    <meta name="description" content="Anuvadini AI is World's leading human-in-the-loop multilingual AI platform offering AI translation in 22 Indian and 89+ global languages, bulk book & PDF translation, InDesign-to-InDesign publishing, OCR, AI agents, voice-to-text, video dubbing, lip-sync, voice cloning, Geo-AI monitoring, dashboards, and NEP-enabled education solutions for government and enterprises." />
+    <meta name="keywords" content="Anuvadini AI, AI translation platform India, multilingual translation software, Bharatiya Bhasha translation, Indian language AI translation, translation in 22 Indian languages, translation in 89+ global languages, bulk PDF translation, bulk book translation AI, AI publishing platform, AI writing assistant, instant book writing tool, AI blog and note writing, OCR-based document translation, scanned PDF translation, image translation with layout preservation, InDesign to InDesign translation, CorelDRAW to CorelDRAW translation, Canva and Photoshop translation, print-ready multilingual publishing, AI subtitle generation, multilingual subtitles, AI lip-syncing, voice cloning AI, Indianized accent audio generation, real-time speech-to-text India, text-to-speech Indian languages, speech-to-speech translation, multilingual voice assistant, AI chatbot development, RAG-based chatbot India, AI agents platform, custom AI BI DI dashboards, workflow monitoring dashboards, translation progress tracking dashboard, NEP 2020 digital solutions, Academic Bank of Credits integration, student skill mapping portal, employability analytics dashboard, AICTE Internship portal multilingual enablement, government website localization India, Geo-AI platform India, water body change analysis AI, agriculture monitoring AI, construction progress monitoring AI, satellite-based site analysis, AI exam platform for JEE and NEET, interactive diagram-based questions, biometric attendance app face voice iris palm, multimodal AI platform, Make in India AI solutions, Aatmanirbhar Bharat digital platform, human-in-the-loop AI company, secure enterprise AI systems, scalable national-level digital governance solutions, human-like AI" />
+    <meta name="author" content="Anuvadini AI" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anuvadini.ai/" />
+    <meta property="og:title" content="Anuvadini AI | Make in India, Global AI Translation Tool" />
+    <meta property="og:description" content="Anuvadini AI is World's leading human-in-the-loop multilingual AI platform offering AI translation in 22 Indian and 89+ global languages, bulk book & PDF translation, InDesign-to-InDesign publishing, OCR, AI agents, voice-to-text, video dubbing, lip-sync, voice cloning, Geo-AI monitoring, dashboards, and NEP-enabled education solutions for government and enterprises." />
+    <meta property="og:image" content="https://anuvadini.ai/anuvadini-social-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Anuvadini AI" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://anuvadini.ai/" />
+    <meta property="twitter:title" content="Anuvadini AI | Make in India, Global AI Translation Tool" />
+    <meta property="twitter:description" content="Anuvadini AI is World's leading human-in-the-loop multilingual AI platform offering AI translation in 22 Indian and 89+ global languages, bulk book & PDF translation, InDesign-to-InDesign publishing, OCR, AI agents, voice-to-text, video dubbing, lip-sync, voice cloning, Geo-AI monitoring, dashboards, and NEP-enabled education solutions for government and enterprises." />
+    <meta property="twitter:image" content="https://anuvadini.ai/anuvadini-social-preview.jpg" />
+    <meta property="twitter:creator" content="@AnuvadiniAI" />
+    <meta property="twitter:site" content="@AnuvadiniAI" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://anuvadini.ai/" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data - Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Anuvadini AI",
+      "alternateName": ["Anuvadini", "Anuvadini Translation", "AICTE Anuvadini"],
+      "url": "https://anuvadini.ai/",
+      "logo": "https://anuvadini.ai/image.png",
+      "description": "Make in India global AI translation tool offering free, accurate language translation across 22 Indian and 89+ global languages with human validation process",
+      "foundingDate": "2023",
+      "founders": [
+        {
+          "@type": "Organization",
+          "name": "AICTE India"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "cconeat@aicte-india.org",
+        "availableLanguage": ["English", "Hindi", "Tamil", "Telugu", "Bengali", "Marathi", "Gujarati"]
+      },
+      "sameAs": [
+        "https://x.com/anuvadini",
+        "https://www.linkedin.com/in/anuvadini-ai",
+        "https://youtube.com/@anuvadinineat"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "areaServed": "Worldwide",
+      "knowsAbout": [
+        "AI Translation",
+        "Multilingual Communication",
+        "Indian Languages",
+        "Machine Learning",
+        "Natural Language Processing"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Software Application Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Anuvadini AI Translation Platform",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Translation Software",
+      "operatingSystem": ["Web Browser", "iOS", "Android"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1000",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "description": "AI-powered translation platform supporting 22 Indian and 89+ global languages with human validation process. Features include document translation, voice translation, and real-time multilingual communication.",
+      "featureList": [
+        "22 Indian Languages Support",
+        "89+ Global Languages",
+        "Human Validation Process",
+        "Real-time Translation",
+        "Document Translation",
+        "Voice Translation",
+        "AI-powered Translation",
+        "Multilingual Communication",
+        "Enterprise Solutions"
+      ],
+      "screenshot": "https://anuvadini.ai/anuvadini-social-preview.jpg",
+      "softwareVersion": "2.0",
+      "datePublished": "2023-01-01",
+      "dateModified": "2024-12-01",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anuvadini AI"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Anuvadini AI",
+      "url": "https://anuvadini.ai/",
+      "description": "Make in India global AI translation tool offering free, accurate language translation",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anuvadini AI"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://anuvadini.ai/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": ["en", "hi", "ta", "te", "bn", "mr", "gu", "kn", "ml", "pa", "or", "as"]
+    }
+    </script>
+    
+    <!-- Structured Data - Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Translation Services",
+      "description": "Professional AI-powered translation services supporting 22 Indian and 89+ global languages",
+      "provider": {
+        "@type": "Organization",
+        "name": "Anuvadini AI"
+      },
+      "areaServed": "Worldwide",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://anuvadini.ai/",
+        "serviceSmsNumber": "+91-XXX-XXX-XXXX",
+        "servicePhone": "+91-XXX-XXX-XXXX"
+      },
+      "serviceType": "Translation Service",
+      "category": "AI Translation",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Anuvadini AI",
+      "description": "Make in India global AI translation tool that offers free, accurate language translation with advanced AI capabilities",
+      "url": "https://anuvadini.ai",
+      "applicationCategory": "TranslationApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Anuvadini AI",
+        "url": "https://anuvadini.ai"
+      },
+      "featureList": [
+        "AI-powered translation",
+        "Multi-language support",
+        "Free translation service",
+        "Indian language translation",
+        "Real-time translation"
+      ]
+    }
+    </script>
+    
+    <!-- Additional Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Anuvadini AI",
+      "url": "https://anuvadini.ai",
+      "logo": "https://anuvadini.ai/logo.png",
+      "description": "Make in India global AI translation tool",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://twitter.com/AnuvadiniAI",
+        "https://linkedin.com/company/anuvadini-ai"
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Bwe-mN6P.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/router-B2dBfXBM.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BfqUgLrs.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CzJwldx_.css">
+  </head>
+
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 z-50">
+      Skip to main content
+    </a>
+    <!-- <script src="https://chatbot.aicte-india.org/embed.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6ImRldi1hZG1pbi0wMDEiLCJkb2NfaWQiOiJhbnV2YWRpbmkuYWljdGUtaW5kaWEub3JnIiwiZG9tYWluIjoiYW51dmFkaW5pLmFpY3RlLWluZGlhLm9yZyIsInBsYW4iOiJzdGFuZGFyZCIsImlhdCI6MTc3MTc2NTE3MCwiZXhwIjoxODAzMzAxMTcwfQ.0Axqsw9chxo1w933htprOdnHLDomGvtZ_NGeZrL7xJ4" defer></script> -->
+    <!-- Main Application -->
+    <div id="root"></div>
+    
+    <!-- Fallback content for non-JS users -->
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>Anuvadini AI - AI Translation Tool</h1>
+        <p>You need to enable JavaScript to run this app.</p>
+        <p>Anuvadini AI is a Make in India global AI translation tool that offers free, accurate language translation.</p>
+      </div>
+    </noscript>
+    <!-- <script src="https://chatbot.aicte-india.org/embed.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6ImRldi1hZG1pbi0wMDEiLCJkb2NfaWQiOiJhbnV2YWRpbmkuYWljdGUuZ292LmluIiwiZG9tYWluIjoiYW51dmFkaW5pLmFpY3RlLmdvdi5pbiIsInBsYW4iOiJzdGFuZGFyZCIsImlhdCI6MTc3ODEzMTc1MywiZXhwIjoxODA5NjY3NzUzfQ.zMfQ9TRGEAcMcwpVczqLvJki3eS_Ly8ETEqkaE_3AHM" defer></script> -->
+    <!-- <script src="https://chatbot.aicte-india.org/embed.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6ImRldi1hZG1pbi0wMDEiLCJkb2NfaWQiOiJhbnV2YWRpbmkuYWljdGUuZ292LmluIiwiZG9tYWluIjoiYW51dmFkaW5pLmFpY3RlLmdvdi5pbiIsInBsYW4iOiJzdGFuZGFyZCIsImlhdCI6MTc3ODEzMTc1MywiZXhwIjoxODA5NjY3NzUzfQ.zMfQ9TRGEAcMcwpVczqLvJki3eS_Ly8ETEqkaE_3AHM" defer></script> -->
+    <!-- <script src="https://chatbot.aicte-india.org/embed.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6ImRldi1hZG1pbi0wMDEiLCJkb2NfaWQiOiJhbnV2YWRpbmkuYWljdGUuZ292LmluIiwiZG9tYWluIjoiYW51dmFkaW5pLmFpY3RlLmdvdi5pbiIsInBsYW4iOiJzdGFuZGFyZCIsImlhdCI6MTc3ODIwNDcxNiwiZXhwIjoxODA5NzQwNzE2fQ.cTOKRRfZydWxozoiCgefsY-EFVdYXWY5_QHzoSqGme4" defer></script> -->
+    <script src="https://chatbot-backend.aicte-india.org/embed.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6ImRldi1hZG1pbi0wMDEiLCJkb2NfaWQiOiJhbnV2YWRpbmkuYWljdGUuZ292LmluIiwiZG9tYWluIjoiYW51dmFkaW5pLmFpY3RlLmdvdi5pbiIsInBsYW4iOiJzdGFuZGFyZCIsImlhdCI6MTc3OTg1NDQ3OCwiZXhwIjoxODExMzkwNDc4fQ.uO8oqJC6fmncvMrBt-DWhUAUK0xm8qdmc7S6MsHeCss" defer></script>
+
+  </body>
+</html>

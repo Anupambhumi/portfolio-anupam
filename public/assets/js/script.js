@@ -42,20 +42,93 @@ $(document).ready(function () {
 
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
+        if (typeof emailjs !== "undefined") {
+            emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+            emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById("contact-form").reset();
+                    alert("Form Submitted Successfully");
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    alert("Form Submission Failed! Try Again");
+                });
+        }
         event.preventDefault();
     });
-    // <!-- emailjs to mail contact form data -->
+
+    // <!-- typed js effect starts -->
+    if (document.querySelector(".typing-text") && typeof Typed !== "undefined") {
+        new Typed(".typing-text", {
+            strings: ["frontend development", "backend development", "web designing", "android development", "web development"],
+            loop: true,
+            typeSpeed: 50,
+            backSpeed: 25,
+            backDelay: 500,
+        });
+    }
+    // <!-- typed js effect ends -->
+
+    // <!-- tilt js effect starts -->
+    if (typeof VanillaTilt !== "undefined") {
+        VanillaTilt.init(document.querySelectorAll(".tilt"), {
+            max: 15,
+        });
+    }
+    // <!-- tilt js effect ends -->
+
+    /* ===== SCROLL REVEAL ANIMATION ===== */
+    if (typeof ScrollReveal !== "undefined") {
+        const srtop = ScrollReveal({
+            origin: 'top',
+            distance: '80px',
+            duration: 1000,
+            reset: true
+        });
+
+        /* SCROLL HOME */
+        srtop.reveal('.home .content h3', { delay: 200 });
+        srtop.reveal('.home .content p', { delay: 200 });
+        srtop.reveal('.home .content .btn', { delay: 200 });
+
+        srtop.reveal('.home .image', { delay: 400 });
+        srtop.reveal('.home .linkedin', { interval: 600 });
+        srtop.reveal('.home .github', { interval: 800 });
+        srtop.reveal('.home .twitter', { interval: 1000 });
+        srtop.reveal('.home .telegram', { interval: 600 });
+        srtop.reveal('.home .instagram', { interval: 600 });
+        srtop.reveal('.home .dev', { interval: 600 });
+
+        /* SCROLL ABOUT */
+        srtop.reveal('.about .content h3', { delay: 200 });
+        srtop.reveal('.about .content .tag', { delay: 200 });
+        srtop.reveal('.about .content p', { delay: 200 });
+        srtop.reveal('.about .content .box-container', { delay: 200 });
+        srtop.reveal('.about .content .resumebtn', { delay: 200 });
+
+        /* SCROLL EDUCATION */
+        srtop.reveal('.education .box', { interval: 200 });
+
+        /* SCROLL EXPERIENCE */
+        srtop.reveal('.experience .timeline', { delay: 400 });
+        srtop.reveal('.experience .timeline .container', { interval: 400 });
+
+        /* SCROLL CONTACT */
+        srtop.reveal('.contact .container', { delay: 400 });
+        srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+        // Expose srtop to be used in showSkills and showProjects
+        window.srtop = srtop;
+    }
+
+    // Fetch and display skills and projects
+    fetchData().then(data => {
+        showSkills(data);
+    }).catch(error => console.error(error));
+
+    fetchData("projects").then(data => {
+        showProjects(data);
+    }).catch(error => console.error(error));
 
 });
 
@@ -70,19 +143,6 @@ document.addEventListener('visibilitychange',
             $("#favicon").attr("href", "/assets/images/favhand.png");
         }
     });
-
-
-// <!-- typed js effect starts -->
-if (document.querySelector(".typing-text") && typeof Typed !== "undefined") {
-    var typed = new Typed(".typing-text", {
-        strings: ["frontend development", "backend development", "web designing", "android development", "web development"],
-        loop: true,
-        typeSpeed: 50,
-        backSpeed: 25,
-        backDelay: 500,
-    });
-}
-// <!-- typed js effect ends -->
 
 async function fetchData(type = "skills") {
     let response
@@ -105,35 +165,42 @@ function showSkills(skills) {
         skillHTML += `
         <div class="bar">
               <div class="info">
-                <img src=${skill.icon} alt="skill" />
+                <img src="${skill.icon}" alt="skill" />
                 <span>${skill.name}</span>
               </div>
             </div>`
     });
     skillsContainer.innerHTML = skillHTML;
+
+    if (window.srtop) {
+        window.srtop.reveal('.skills .container', { interval: 200 });
+        window.srtop.reveal('.skills .container .bar', { delay: 400 });
+    }
 }
 
 function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
+    let projectsContainer = document.querySelector("#Projects .box-container");
     if (!projectsContainer) return;
     let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
+    projects.forEach(project => {
         projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>`
+        <div class="card box tilt">
+            <div class="img-area">
+                <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+            </div>
+            <div class="content">
+                <div class="tag">
+                    <h3>${project.name}</h3>
+                </div>
+                <div class="desc">
+                    <p>${project.desc}</p>
+                </div>
+                <div class="btns">
+                    <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+                </div>
+            </div>
+        </div>`
     });
     projectsContainer.innerHTML = projectHTML;
 
@@ -145,47 +212,10 @@ function showProjects(projects) {
     }
     // <!-- tilt js effect ends -->
 
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    if (typeof ScrollReveal !== "undefined") {
-        const srtop = ScrollReveal({
-            origin: 'top',
-            distance: '80px',
-            duration: 1000,
-            reset: true
-        });
-
-        /* SCROLL PROJECTS */
-        srtop.reveal('.work .box', { interval: 200 });
+    if (window.srtop) {
+        window.srtop.reveal('.Projects .box', { interval: 200 });
     }
-
 }
-
-fetchData().then(data => {
-    showSkills(data);
-}).catch(error => console.error(error));
-
-fetchData("projects").then(data => {
-    showProjects(data);
-}).catch(error => console.error(error));
-
-// <!-- tilt js effect starts -->
-if (typeof VanillaTilt !== "undefined") {
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-}
-// <!-- tilt js effect ends -->
-
-
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
 
 // disable developer mode
 document.onkeydown = function (e) {
@@ -206,51 +236,3 @@ document.onkeydown = function (e) {
     }
 }
 
-if (typeof ScrollReveal !== "undefined") {
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL HOME */
-    srtop.reveal('.home .content h3', { delay: 200 });
-    srtop.reveal('.home .content p', { delay: 200 });
-    srtop.reveal('.home .content .btn', { delay: 200 });
-
-    srtop.reveal('.home .image', { delay: 400 });
-    srtop.reveal('.home .linkedin', { interval: 600 });
-    srtop.reveal('.home .github', { interval: 800 });
-    srtop.reveal('.home .twitter', { interval: 1000 });
-    srtop.reveal('.home .telegram', { interval: 600 });
-    srtop.reveal('.home .instagram', { interval: 600 });
-    srtop.reveal('.home .dev', { interval: 600 });
-
-    /* SCROLL ABOUT */
-    srtop.reveal('.about .content h3', { delay: 200 });
-    srtop.reveal('.about .content .tag', { delay: 200 });
-    srtop.reveal('.about .content p', { delay: 200 });
-    srtop.reveal('.about .content .box-container', { delay: 200 });
-    srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-
-    /* SCROLL SKILLS */
-    srtop.reveal('.skills .container', { interval: 200 });
-    srtop.reveal('.skills .container .bar', { delay: 400 });
-
-    /* SCROLL EDUCATION */
-    srtop.reveal('.education .box', { interval: 200 });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
-    /* SCROLL EXPERIENCE */
-    srtop.reveal('.experience .timeline', { delay: 400 });
-    srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-    /* SCROLL CONTACT */
-    srtop.reveal('.contact .container', { delay: 400 });
-    srtop.reveal('.contact .container .form-group', { delay: 400 });
-}

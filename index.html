@@ -40,9 +40,10 @@
         <li><a class="active" href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#Projects">Projects</a></li>
         <li><a href="#Publications">Publications</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -133,7 +134,7 @@
     <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
 
     <div class="container">
-      <div class="row" id="skills">
+      <div class="row" id="skillsContainer">
 
         <div class="bar">
           <a href="https://cplusplus.com/doc/tutorial/" target="_blank">
@@ -166,7 +167,7 @@
           <a href="https://www.geeksforgeeks.org/data-science-tutorial/" target="_blank">
             <div class="info">
               <img
-                src="https://img.icons8.com/external-flat-juicy-fish/48/000000/external-data-science-big-data-flat-flat-juicy-fish.png"
+                src="https://img.icons8.com/color/48/000000/analytics.png"
                 alt="Data Science" />
               <span>Data Science</span>
             </div>
@@ -177,7 +178,7 @@
           <a href="https://www.geeksforgeeks.org/machine-learning/" target="_blank">
             <div class="info">
               <img
-                src="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/48/000000/external-machine-learning-machine-learning-smashingstocks-flat-smashing-stocks.png"
+                src="https://img.icons8.com/color/48/000000/brain.png"
                 alt="Machine Learning" />
               <span>Machine Learning</span>
             </div>
@@ -255,49 +256,43 @@
   <!-- skills section ends -->
 
 
-  <!-- education section starts -->
-  <section class="education" id="education">
+  <!-- experience section starts -->
+  <section class="experience" id="experience">
+    <h2 class="heading"><i class="fas fa-briefcase"></i> Experience <span></span></h2>
 
-    <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+    <div class="timeline">
 
-    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
-
-    <div class="box-container">
-
-      <div class="box">
-        <div class="image">
-          <img draggable="false" src="./assets/images/Campus_of_Chandigarh_University.jpg" alt="">
-        </div>
+      <div class="container left">
         <div class="content">
-          <h3>Bachelor of Engineering in Computer Science</h3>
-          <p>Chandigarh University | CU</p>
-          <h4>2021-2025 | Completed</h4>
+          <div class="logo-area">
+            <img src="/assets/images/anu.png" alt="Anuvadini Foundation" />
+          </div>
+          <div class="desc">
+            <h3>Software Engineer</h3>
+            <p class="company">ANUVADINI FOUNDATION · Full-time</p>
+            <p class="duration"><i class="far fa-calendar-alt"></i> Feb 2026 - Present · 4 mos</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
+          </div>
         </div>
       </div>
-      <div class="box">
-        <div class="image">
-          <img draggable="false" src="./assets/images/OIP (1).jpeg" alt="">
-        </div>
+
+      <div class="container right">
         <div class="content">
-          <h3>Science</h3>
-          <p>Kshatriya High School | BSEB</p>
-          <h4>2019-2021 | Completed</h4>
-        </div>
-      </div>
-      <div class="box">
-        <div class="image">
-          <img draggable="false" src="./assets/images/ksvm.jpg" alt="">
-        </div>
-        <div class="content">
-          <h3>Science</h3>
-          <p>Keshav Saraswati Vidya Mandir | CBSE</p>
-          <h4>2018-2019 | Completed</h4>
+          <div class="logo-area">
+            <img src="/assets/images/aicte.png" alt="AICTE" />
+          </div>
+          <div class="desc">
+            <h3>Software devloper intern</h3>
+            <p class="company">All India Council for Technical Education (AICTE) · Internship</p>
+            <p class="duration"><i class="far fa-calendar-alt"></i> Jul 2025 - Jan 2026 · 7 mos</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
-  <!-- education section ends -->
+  <!-- experience section ends -->
 
 
   <!-- work project section starts -->
@@ -315,8 +310,7 @@
         const container = document.querySelector('#Projects .box-container');
         let html = '';
         projects.forEach(project => {
-          // Only use the image specified in projects.json
-          const imgSrc = assets / images / projects / ${ project.image }.png;
+          const imgSrc = `assets/images/projects/${project.image}.png`;
           html += `
         <div class="card box tilt">
           <div class="img-area">
@@ -374,6 +368,50 @@
     </div>
   </section>
 
+  <!-- education section starts -->
+  <section class="education" id="education">
+
+    <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
+
+    <div class="box-container">
+
+      <div class="box">
+        <div class="image">
+          <img draggable="false" src="./assets/images/Campus_of_Chandigarh_University.jpg" alt="">
+        </div>
+        <div class="content">
+          <h3>Bachelor of Engineering in Computer Science</h3>
+          <p>Chandigarh University | CU</p>
+          <h4>2021-2025 | Completed</h4>
+        </div>
+      </div>
+      <div class="box">
+        <div class="image">
+          <img draggable="false" src="./assets/images/OIP (1).jpeg" alt="">
+        </div>
+        <div class="content">
+          <h3>Science</h3>
+          <p>Kshatriya High School | BSEB</p>
+          <h4>2019-2021 | Completed</h4>
+        </div>
+      </div>
+      <div class="box">
+        <div class="image">
+          <img draggable="false" src="./assets/images/ksvm.jpg" alt="">
+        </div>
+        <div class="content">
+          <h3>Science</h3>
+          <p>Keshav Saraswati Vidya Mandir | CBSE</p>
+          <h4>2018-2019 | Completed</h4>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- education section ends -->
+
 
 
   <!-- contact section ends -->
@@ -395,9 +433,10 @@
         <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
         <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
         <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-        <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+        <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
         <a href="#Projects"><i class="fas fa-chevron-circle-right"></i> projects</a>
         <a href="#Publications"><i class="fas fa-chevron-circle-right"></i> publications</a>
+        <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
       </div>
 
       <div class="box">
