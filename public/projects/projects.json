@@ -38,5 +38,25 @@
       "view": "#",
       "code": "#"
     }
+  },
+  {
+    "name": "Subtitle Editor for Video",
+    "desc": "A web-based subtitle editor for videos with timeline editing, sync controls, and export support.",
+    "image": "subtitle-editor",
+    "category": "basicweb",
+    "links": {
+      "view": "https://github.com/Anupambhumi/subtitle-editor-frontend",
+      "code": "https://github.com/Anupambhumi/subtitle-editor-frontend"
+    }
+  },
+  {
+    "name": "Workforce Tracking System",
+    "desc": "An employee attendance and workforce management system for tracking tasks, shifts, and productivity.",
+    "image": "workforce-tracking",
+    "category": "basicweb",
+    "links": {
+      "view": "https://github.com/Anupambhumi/workforce-tracking-system",
+      "code": "https://github.com/Anupambhumi/workforce-tracking-system"
+    }
   }
 ]
