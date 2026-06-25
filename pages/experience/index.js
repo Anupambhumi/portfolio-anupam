@@ -11,6 +11,7 @@ export default function Experience() {
       <Head>
         <title>Experience | Portfolio Anupam</title>
         <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png" />
+        <link rel="stylesheet" href="/experience/style.css" />
       </Head>
       <header>
         <a href="/" className="logo"><i className="fab fa-node-js"></i> Anupam</a>

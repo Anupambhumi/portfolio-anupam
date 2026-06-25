@@ -39,9 +39,9 @@
       <ul>
         <li><a class="active" href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#Projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#Publications">Publications</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -127,6 +127,85 @@
     </div>
   </section>
   <!-- about section ends -->
+
+  <!-- experience section starts -->
+  <section class="experience" id="experience">
+    <h2 class="heading"><i class="fas fa-briefcase"></i> Experience <span></span></h2>
+
+    <div class="timeline">
+
+      <div class="container left">
+        <div class="content">
+          <div class="logo-area">
+            <img src="/assets/images/anu.png" alt="Anuvadini Foundation" />
+          </div>
+          <div class="desc">
+            <h3>Software Engineer</h3>
+            <p class="company">ANUVADINI FOUNDATION · Full-time</p>
+            <p class="duration"><i class="far fa-calendar-alt"></i> Feb 2026 - Present · 4 mos</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container right">
+        <div class="content">
+          <div class="logo-area">
+            <img src="/assets/images/aicte.png" alt="AICTE" />
+          </div>
+          <div class="desc">
+            <h3>Software devloper intern</h3>
+            <p class="company">All India Council for Technical Education (AICTE) · Internship</p>
+            <p class="duration"><i class="far fa-calendar-alt"></i> Jul 2025 - Jan 2026 · 7 mos</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- experience section ends -->
+
+
+  <!-- work project section starts -->
+  <section class="Projects" id="Projects">
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span></span></h2>
+    <div class="box-container"></div>
+  </section>
+  <!-- work project section ends -->
+
+  <script>
+    // Fetch and display projects from projects.json
+    fetch('projects/projects.json')
+      .then(response => response.json())
+      .then(projects => {
+        const container = document.querySelector('#Projects .box-container');
+        let html = '';
+        projects.forEach(project => {
+          const imgSrc = `assets/images/projects/${project.image}.png`;
+          html += `
+        <div class="card box tilt">
+          <div class="img-area">
+            <img draggable="false" src="${imgSrc}" alt="project" />
+          </div>
+          <div class="content">
+            <div class="tag">
+              <h3>${project.name}</h3>
+            </div>
+            <div class="desc">
+              <p>${project.desc}</p>
+            </div>
+            <div class="btns">
+              <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+              <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+            </div>
+          </div>
+        </div>
+      `;
+        });
+        container.innerHTML = html;
+      });
+  </script>
 
   <!-- skills section starts -->
   <section class="skills" id="skills">
@@ -256,87 +335,8 @@
   <!-- skills section ends -->
 
 
-  <!-- experience section starts -->
-  <section class="experience" id="experience">
-    <h2 class="heading"><i class="fas fa-briefcase"></i> Experience <span></span></h2>
-
-    <div class="timeline">
-
-      <div class="container left">
-        <div class="content">
-          <div class="logo-area">
-            <img src="/assets/images/anu.png" alt="Anuvadini Foundation" />
-          </div>
-          <div class="desc">
-            <h3>Software Engineer</h3>
-            <p class="company">ANUVADINI FOUNDATION · Full-time</p>
-            <p class="duration"><i class="far fa-calendar-alt"></i> Feb 2026 - Present · 4 mos</p>
-            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="container right">
-        <div class="content">
-          <div class="logo-area">
-            <img src="/assets/images/aicte.png" alt="AICTE" />
-          </div>
-          <div class="desc">
-            <h3>Software devloper intern</h3>
-            <p class="company">All India Council for Technical Education (AICTE) · Internship</p>
-            <p class="duration"><i class="far fa-calendar-alt"></i> Jul 2025 - Jan 2026 · 7 mos</p>
-            <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi, India · On-site</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- experience section ends -->
-
-
-  <!-- work project section starts -->
-  <section class="Projects" id="Projects">
-    <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span></span></h2>
-    <div class="box-container"></div>
-  </section>
-  <!-- work project section ends -->
-
-  <script>
-    // Fetch and display projects from projects.json
-    fetch('projects/projects.json')
-      .then(response => response.json())
-      .then(projects => {
-        const container = document.querySelector('#Projects .box-container');
-        let html = '';
-        projects.forEach(project => {
-          const imgSrc = `assets/images/projects/${project.image}.png`;
-          html += `
-        <div class="card box tilt">
-          <div class="img-area">
-            <img draggable="false" src="${imgSrc}" alt="project" />
-          </div>
-          <div class="content">
-            <div class="tag">
-              <h3>${project.name}</h3>
-            </div>
-            <div class="desc">
-              <p>${project.desc}</p>
-            </div>
-            <div class="btns">
-              <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-              <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-            </div>
-          </div>
-        </div>
-      `;
-        });
-        container.innerHTML = html;
-      });
-  </script>
-
-  <!-- experience section starts -->
-  <section class="Publications" id="Publications">
+  <!-- publications section starts -->
+  <section class="publications" id="Publications">
     <h2 class="heading"><i class="fas fa-book"></i> Publications</h2>
 
     <div class="publications-container">
@@ -360,13 +360,9 @@
         <p class="pub-date">Published: 18th Jan 2024</p>
       </div>
     </div>
-
-    <div class="morebtn">
-      <a href="/publications" class="btn"><span>View All</span>
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
   </section>
+  <!-- publications section ends -->
+
 
   <!-- education section starts -->
   <section class="education" id="education">
@@ -413,7 +409,6 @@
   <!-- education section ends -->
 
 
-
   <!-- contact section ends -->
 
 
@@ -432,9 +427,9 @@
         <h3>quick links</h3>
         <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
         <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-        <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
         <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
         <a href="#Projects"><i class="fas fa-chevron-circle-right"></i> projects</a>
+        <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
         <a href="#Publications"><i class="fas fa-chevron-circle-right"></i> publications</a>
         <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
       </div>
