@@ -8,6 +8,7 @@ export default function Custom404({ bodyHtml }) {
       <Head>
         <title>Got Lost! Page Not Found</title>
         <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png" />
+        <link rel="stylesheet" href="/assets/css/404.css" />
       </Head>
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" strategy="beforeInteractive" />

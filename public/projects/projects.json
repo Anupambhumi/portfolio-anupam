@@ -13,7 +13,7 @@
     "name": "Object-Detection-and-Assisting-for-Blind-individuals",
     "desc": "Machine Learning, OpenCV, Tensorflow",
     "image": "Object-detection-Real-world-applications",
-    "category": "Machine Learninng Project",
+    "category": "ml",
     "links": {
       "view": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals",
       "code": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals"
@@ -33,10 +33,30 @@
     "name": "AI Powered Logo Recognition System",
     "desc": "Model to recognize Logo of more than 2000 and trained this model using 2 pictures",
     "image": "AI-Detection",
-    "category": "Machine Learninng Project",
+    "category": "ml",
     "links": {
       "view": "#",
       "code": "#"
+    }
+  },
+  {
+    "name": "Subtitle Editor for Video",
+    "desc": "A web-based subtitle editor for videos with timeline editing, sync controls, and export support.",
+    "image": "subtitle-editor",
+    "category": "basicweb",
+    "links": {
+      "view": "https://github.com/Anupambhumi/subtitle-editor-frontend",
+      "code": "https://github.com/Anupambhumi/subtitle-editor-frontend"
+    }
+  },
+  {
+    "name": "Workforce Tracking System",
+    "desc": "An employee attendance and workforce management system for tracking tasks, shifts, and productivity.",
+    "image": "workforce-tracking",
+    "category": "basicweb",
+    "links": {
+      "view": "https://github.com/Anupambhumi/workforce-tracking-system",
+      "code": "https://github.com/Anupambhumi/workforce-tracking-system"
     }
   }
 ]
