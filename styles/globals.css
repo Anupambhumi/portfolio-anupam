@@ -454,27 +454,114 @@ textarea {
 /* ===== Hero ===== */
 .hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
-  padding: clamp(40px, 8vw, 96px) 0 clamp(64px, 10vw, 120px);
+  display: flex;
+  align-items: center;
+  min-height: min(calc(100svh - 68px), 820px);
+  padding: clamp(64px, 10vw, 120px) 0;
 }
 
-.hero-glow {
+/* Animated background: drifting gradient orbs over a faint grid. */
+.hero-bg {
   position: absolute;
-  inset: -20% -10% auto auto;
-  width: 70vw;
-  height: 70vw;
-  max-width: 900px;
-  max-height: 900px;
-  background: radial-gradient(circle, var(--accent-soft), transparent 65%);
+  inset: 0;
+  z-index: -1;
   pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.75;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 46vmax;
+  height: 46vmax;
+  top: -18vmax;
+  left: -12vmax;
+  background: radial-gradient(circle, var(--accent), transparent 68%);
+  animation: drift-1 18s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  width: 40vmax;
+  height: 40vmax;
+  bottom: -20vmax;
+  right: -10vmax;
+  background: radial-gradient(circle, var(--accent-2), transparent 68%);
+  animation: drift-2 22s ease-in-out infinite alternate;
+}
+
+.orb-3 {
+  width: 28vmax;
+  height: 28vmax;
+  top: 30%;
+  left: 55%;
+  background: radial-gradient(circle, #c084fc, transparent 68%);
+  opacity: 0.5;
+  animation: drift-3 26s ease-in-out infinite alternate;
+}
+
+:root[data-theme='dark'] .orb {
+  opacity: 0.5;
+}
+
+:root[data-theme='dark'] .orb-3 {
+  opacity: 0.35;
+}
+
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  opacity: 0.6;
+  animation: grid-pan 30s linear infinite;
+}
+
+@keyframes drift-1 {
+  to {
+    transform: translate(18vw, 12vh) scale(1.15);
+  }
+}
+
+@keyframes drift-2 {
+  to {
+    transform: translate(-20vw, -14vh) scale(1.1);
+  }
+}
+
+@keyframes grid-pan {
+  to {
+    background-position: 56px 56px;
+  }
+}
+
+@keyframes drift-3 {
+  to {
+    transform: translate(-30vw, 10vh) scale(0.85);
+  }
 }
 
 .hero-grid {
   position: relative;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 48px;
+  text-align: center;
+  max-width: 860px;
+}
+
+.hero .socials,
+.hero-cta {
+  justify-content: center;
 }
 
 .hero-sub {
@@ -517,49 +604,6 @@ textarea {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
-}
-
-.hero-art {
-  justify-self: center;
-}
-
-.hero-art img {
-  width: min(100%, 460px);
-  height: auto;
-  border-radius: 28px;
-  filter: drop-shadow(0 30px 60px rgba(79, 70, 229, 0.25));
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-cta,
-  .hero .socials {
-    justify-content: center;
-  }
-
-  .hero-art {
-    order: -1;
-  }
-
-  .hero-art img {
-    width: min(52vw, 220px);
-    border-radius: 22px;
-  }
-
-  .hero-grid {
-    gap: 28px;
-  }
 }
 
 /* ===== About ===== */

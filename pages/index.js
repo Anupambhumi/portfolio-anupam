@@ -9,7 +9,12 @@ export default function Home({ profile, experience, projects, skills, publicatio
   return (
     <Layout>
       <section className="hero" id="home">
-        <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-bg" aria-hidden="true">
+          <span className="orb orb-1" />
+          <span className="orb orb-2" />
+          <span className="orb orb-3" />
+          <span className="hero-grid-lines" />
+        </div>
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="eyebrow">
@@ -36,9 +41,6 @@ export default function Home({ profile, experience, projects, skills, publicatio
                 </a>
               ))}
             </div>
-          </div>
-          <div className="hero-art">
-            <Image src={profile.hero} alt="" width={520} height={520} priority sizes="(max-width: 900px) 70vw, 460px" />
           </div>
         </div>
       </section>
