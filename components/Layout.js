@@ -79,7 +79,7 @@ export default function Layout({ title, description, children }) {
         <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={profile.photo} />
-        <meta name="theme-color" content="#4f46e5" />
+        <meta name="theme-color" content="#ea580c" />
       </Head>
 
       <a href="#main" className="skip-link">
