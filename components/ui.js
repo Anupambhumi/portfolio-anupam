@@ -51,7 +51,7 @@ export function TypedText({ words }) {
 
 export function ProjectCard({ project }) {
   return (
-    <article className="card project-card reveal">
+    <article className={`card project-card reveal cat-${project.category}`}>
       <div className="project-media">
         <Image
           src={project.image}
@@ -59,7 +59,7 @@ export function ProjectCard({ project }) {
           fill
           sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 360px"
         />
-        <span className="chip chip-floating">{project.categoryLabel}</span>
+        <span className="chip chip-floating chip-cat">{project.categoryLabel}</span>
       </div>
       <div className="project-body">
         <h3>{project.name}</h3>

@@ -10,9 +10,11 @@ export default function Home({ profile, experience, projects, skills, publicatio
     <Layout>
       <section className="hero" id="home">
         <div className="hero-bg" aria-hidden="true">
+          <span className="aurora" />
           <span className="orb orb-1" />
           <span className="orb orb-2" />
           <span className="orb orb-3" />
+          <span className="orb orb-4" />
           <span className="hero-grid-lines" />
         </div>
         <div className="container hero-grid">

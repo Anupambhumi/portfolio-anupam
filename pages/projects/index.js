@@ -20,10 +20,11 @@ export default function Projects({ projects }) {
               <button
                 key={key}
                 type="button"
-                className={`filter${filter === key ? ' active' : ''}`}
+                className={`filter cat-${key}${filter === key ? ' active' : ''}`}
                 aria-pressed={filter === key}
                 onClick={() => setFilter(key)}
               >
+                {key !== 'all' && <span className="dot" aria-hidden="true" />}
                 {label}
                 <span className="count">{key === 'all' ? projects.length : projects.filter((p) => p.category === key).length}</span>
               </button>
