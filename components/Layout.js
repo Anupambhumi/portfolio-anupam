@@ -32,7 +32,18 @@ function useRevealOnScroll(key) {
       { rootMargin: '0px 0px -8% 0px' }
     );
     items.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    // Elements rendered later (e.g. project cards after changing a filter)
+    // must be observed too, or they stay hidden.
+    const mo = new MutationObserver(() =>
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el))
+    );
+    mo.observe(document.getElementById('main') || document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, [key]);
 }
 

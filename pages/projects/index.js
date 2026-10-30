@@ -35,9 +35,9 @@ export default function Projects({ projects }) {
 
       <section className="section section-tight">
         <div className="container">
-          <div className="grid grid-3" key={filter}>
+          <div className="grid grid-3 grid-fade" key={filter}>
             {shown.map((p) => (
-              <ProjectCard key={p.slug} project={p} />
+              <ProjectCard key={p.slug} project={p} reveal={false} />
             ))}
           </div>
         </div>

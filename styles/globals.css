@@ -8,14 +8,14 @@
   --text-muted: #6e5a52;
   --border: #efe1d7;
   --accent: #f97316;
-  --accent-2: #f43f5e;
+  --accent-2: #ef4444;
   --accent-3: #f59e0b;
-  --accent-4: #d946ef;
+  --accent-4: #eab308;
   --accent-soft: rgba(249, 115, 22, 0.12);
   --accent-text: #c2410c;
-  --grad: linear-gradient(110deg, #ea580c 0%, #e11d48 40%, #c026d3 75%, #ea580c 100%);
+  --grad: linear-gradient(110deg, #dc2626 0%, #ea580c 40%, #f59e0b 75%, #dc2626 100%);
   --cat-basicweb: #ea580c;
-  --cat-ml: #c026d3;
+  --cat-ml: #dc2626;
   --cat-android: #16a34a;
   --success: #15803d;
   --danger: #dc2626;
@@ -38,14 +38,14 @@
   --text-muted: #b5a29a;
   --border: #332725;
   --accent: #fb923c;
-  --accent-2: #fb7185;
+  --accent-2: #f87171;
   --accent-3: #fbbf24;
-  --accent-4: #e879f9;
+  --accent-4: #facc15;
   --accent-soft: rgba(251, 146, 60, 0.15);
   --accent-text: #fdba74;
-  --grad: linear-gradient(110deg, #fb923c 0%, #fb7185 40%, #e879f9 75%, #fb923c 100%);
+  --grad: linear-gradient(110deg, #f87171 0%, #fb923c 40%, #fbbf24 75%, #f87171 100%);
   --cat-basicweb: #fb923c;
-  --cat-ml: #e879f9;
+  --cat-ml: #f87171;
   --cat-android: #4ade80;
   --success: #4ade80;
   --danger: #f87171;
@@ -506,9 +506,9 @@ textarea {
     transparent 0deg,
     rgba(249, 115, 22, 0.16) 60deg,
     transparent 120deg,
-    rgba(244, 63, 94, 0.14) 200deg,
+    rgba(239, 68, 68, 0.12) 200deg,
     transparent 260deg,
-    rgba(217, 70, 239, 0.12) 320deg,
+    rgba(245, 158, 11, 0.14) 320deg,
     transparent 360deg
   );
   filter: blur(40px);
@@ -1018,6 +1018,30 @@ textarea {
 .filter.active .count {
   color: inherit;
   opacity: 0.7;
+}
+
+/* Re-plays each time the projects filter changes (the grid is re-keyed). */
+.grid-fade > * {
+  animation: fade-up 0.45s ease both;
+}
+
+.grid-fade > *:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.grid-fade > *:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.grid-fade > *:nth-child(n + 4) {
+  animation-delay: 0.18s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
 
 /* ===== Skills ===== */

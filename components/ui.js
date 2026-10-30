@@ -49,9 +49,9 @@ export function TypedText({ words }) {
   );
 }
 
-export function ProjectCard({ project }) {
+export function ProjectCard({ project, reveal = true }) {
   return (
-    <article className={`card project-card reveal cat-${project.category}`}>
+    <article className={`card project-card${reveal ? ' reveal' : ''} cat-${project.category}`}>
       <div className="project-media">
         <Image
           src={project.image}
