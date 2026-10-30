@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import ContactForm from '@/components/ContactForm';
+import FloatingParticles from '@/components/FloatingParticles';
 import { ProjectCard, SectionHeading, Timeline, TypedText } from '@/components/ui';
 import { getEducation, getExperience, getProfile, getProjects, getPublications, getSkills } from '@/lib/content';
 
@@ -16,6 +17,7 @@ export default function Home({ profile, experience, projects, skills, publicatio
           <span className="orb orb-3" />
           <span className="orb orb-4" />
           <span className="hero-grid-lines" />
+          <FloatingParticles />
         </div>
         <div className="container hero-grid">
           <div className="hero-copy">

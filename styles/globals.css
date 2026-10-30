@@ -582,6 +582,60 @@ textarea {
   animation: grid-pan 8s linear infinite;
 }
 
+.particles {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 calc(var(--size) * 2.5) var(--color);
+  opacity: 0;
+  animation: float-up var(--dur) linear var(--delay) infinite;
+  will-change: transform, opacity;
+}
+
+.particle.ring {
+  background: transparent;
+  border: 1.5px solid var(--color);
+  box-shadow: 0 0 12px var(--color), inset 0 0 8px var(--color);
+}
+
+:root[data-theme='dark'] .particle {
+  mix-blend-mode: screen;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(var(--dx), calc(var(--rise) * -0.5)) scale(1);
+    opacity: 0.55;
+  }
+  65% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(calc(var(--dx) * -0.4), calc(var(--rise) * -1)) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .particle:nth-child(n + 25) {
+    display: none;
+  }
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
