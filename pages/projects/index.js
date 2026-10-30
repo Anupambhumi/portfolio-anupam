@@ -1,29 +1,50 @@
-import Head from 'next/head';
-import Script from 'next/script';
-import { loadLegacyBody } from '@/lib/legacy-page';
+import { useState } from 'react';
+import Layout from '@/components/Layout';
+import { ProjectCard } from '@/components/ui';
+import { CATEGORIES, getProjects } from '@/lib/content';
 
-export default function Projects({ bodyHtml }) {
+export default function Projects({ projects }) {
+  const [filter, setFilter] = useState('all');
+  const filters = [['all', 'All'], ...Object.entries(CATEGORIES).filter(([key]) => projects.some((p) => p.category === key))];
+  const shown = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
+
   return (
-    <>
-      <Head>
-        <title>Projects | Portfolio Anupam</title>
-        <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png" />
-        <link rel="stylesheet" href="/projects/style.css" />
-      </Head>
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" strategy="beforeInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" strategy="afterInteractive" />
-      <Script src="https://unpkg.com/scrollreveal" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" strategy="afterInteractive" />
-      <Script src="/projects/script.js" strategy="afterInteractive" />
-    </>
+    <Layout title="Projects" description="Web, machine learning and Android projects by Anupam Kumar.">
+      <section className="page-hero">
+        <div className="container">
+          <span className="eyebrow">Work</span>
+          <h1>Projects</h1>
+          <p className="lead">Things I&apos;ve built and shipped.</p>
+          <div className="filters" role="group" aria-label="Filter projects">
+            {filters.map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                className={`filter${filter === key ? ' active' : ''}`}
+                aria-pressed={filter === key}
+                onClick={() => setFilter(key)}
+              >
+                {label}
+                <span className="count">{key === 'all' ? projects.length : projects.filter((p) => p.category === key).length}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-tight">
+        <div className="container">
+          <div className="grid grid-3" key={filter}>
+            {shown.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
-  return {
-    props: {
-      bodyHtml: await loadLegacyBody('projects/index.html'),
-    },
-  };
+  return { props: { projects: getProjects() } };
 }

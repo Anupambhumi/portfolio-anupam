@@ -1,26 +1,26 @@
-import Head from 'next/head';
-import Script from 'next/script';
-import { loadLegacyBody } from '@/lib/legacy-page';
+import Link from 'next/link';
+import Layout from '@/components/Layout';
 
-export default function Custom404({ bodyHtml }) {
+export default function NotFound() {
   return (
-    <>
-      <Head>
-        <title>Got Lost! Page Not Found</title>
-        <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png" />
-        <link rel="stylesheet" href="/assets/css/404.css" />
-      </Head>
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" strategy="beforeInteractive" />
-      <Script src="/assets/js/404.js" strategy="afterInteractive" />
-    </>
+    <Layout title="Page not found">
+      <section className="not-found">
+        <div className="container">
+          <p className="nf-code gradient-text" aria-hidden="true">
+            404
+          </p>
+          <h1>Looks like you&apos;re lost.</h1>
+          <p className="lead">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
+          <div className="hero-cta center-row">
+            <Link href="/" className="btn btn-primary">
+              <i className="fas fa-home" aria-hidden="true" /> Back to home
+            </Link>
+            <Link href="/projects" className="btn btn-ghost">
+              See projects
+            </Link>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      bodyHtml: await loadLegacyBody('404.html'),
-    },
-  };
 }

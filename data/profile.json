@@ -1,0 +1,17 @@
+{
+  "name": "Anupam Kumar",
+  "shortName": "Anupam",
+  "title": "Software Engineer & Data Scientist",
+  "roles": ["web development", "backend development", "data science", "machine learning", "android development"],
+  "summary": "I'm a Computer Science (B.E.) graduate from Chandigarh University who builds web apps, Android apps and machine-learning projects. I care about clean code, fast interfaces and shipping things people actually use.",
+  "location": "New Delhi, India",
+  "email": "anupambhumi@gmail.com",
+  "resume": "https://drive.google.com/file/d/1hfkhWlNCz4lNRJ_o5X7ZxX0S78Qt6nSQ/view?usp=sharing",
+  "photo": "/assets/images/Profile.jpg",
+  "hero": "/assets/images/hero.png",
+  "socials": [
+    { "name": "LinkedIn", "icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/anupam-kumar-a8645a22a/" },
+    { "name": "GitHub", "icon": "fab fa-github", "url": "https://github.com/Anupambhumi" },
+    { "name": "Email", "icon": "fas fa-envelope", "url": "mailto:anupambhumi@gmail.com" }
+  ]
+}

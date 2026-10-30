@@ -35,3 +35,9 @@ next-env.d.ts
 # Cache
 .cache/
 .eslintcache
+
+# Local backend storage (dev)
+.data/
+
+# Netlify
+.netlify/
