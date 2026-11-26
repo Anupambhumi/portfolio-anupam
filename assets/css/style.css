@@ -1594,116 +1594,451 @@ form .button-area {
 
 /* Projects section starts */
 #Projects {
-  background: linear-gradient(135deg, #f0f4ff, #e6ecfb);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
   padding: 6rem 2rem;
 }
 
 #Projects .box-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center;
-  align-items: stretch;
-  margin-top: 3rem;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 3.5rem auto 0;
 }
 
-#Projects .card {
-  width: 330px;
-  background: #fff;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+#Projects .project-showcase,
+#Projects .project-showcase * {
+  text-transform: none;
+  box-sizing: border-box;
+}
+
+#Projects .project-showcase {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.8rem;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#Projects .project-showcase:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(37, 6, 173, 0.09);
+}
+
+#Projects .ps-left {
+  padding: 3.4rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 1.8rem;
 }
 
-#Projects .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(48, 68, 247, 0.15);
+#Projects .ps-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
 }
 
-#Projects .card .img-area {
-  height: 200px;
-  background: #f8f9fa;
+#Projects .ps-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+#Projects .ps-lead {
+  font-size: 1.5rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+#Projects .ps-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+#Projects .ps-label {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+#Projects .ps-text {
+  font-size: 1.42rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+#Projects .ps-impact {
+  list-style: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+#Projects .ps-impact li {
+  position: relative;
+  padding-left: 1.8rem;
+  font-size: 1.4rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+#Projects .ps-impact li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+#Projects .ps-accordion {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.2rem;
+  background: #f8fafc;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+#Projects .ps-accordion-btn {
+  width: 100%;
+  background: transparent;
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.35rem;
+  color: #1e293b;
+  font-family: inherit;
+}
+
+#Projects .ps-accordion-btn-left {
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-bottom: 1px solid #f1f1f1;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
-#Projects .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+#Projects .ps-accordion-btn strong {
+  font-weight: 700;
+  color: #0f172a;
 }
 
-#Projects .card:hover img {
-  transform: scale(1.05);
+#Projects .ps-accordion-sub {
+  font-size: 1.15rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 600;
 }
 
-#Projects .card .content {
-  padding: 2rem;
-  flex: 1;
+#Projects .ps-accordion-icon {
+  font-size: 1.2rem;
+  color: #64748b;
+  transition: transform 0.25s ease;
+}
+
+#Projects .ps-accordion.is-open .ps-accordion-icon {
+  transform: rotate(180deg);
+}
+
+#Projects .ps-accordion-body {
+  display: none;
+  padding: 0 1.6rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+#Projects .ps-accordion.is-open .ps-accordion-body {
+  display: block;
+}
+
+#Projects .ps-arch-text {
+  font-size: 1.32rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 1.2rem 0 1rem;
+}
+
+#Projects .ps-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+#Projects .ps-stack-pill {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+}
+
+#Projects .ps-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+#Projects .ps-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.2rem;
+  border-radius: 9999px;
+  font-size: 1.38rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #3b49df 0%, #0d9488 100%);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.22);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#Projects .ps-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+}
+
+#Projects .ps-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.15rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+#Projects .ps-btn-secondary:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+#Projects .ps-right {
+  border-left: 1px solid #e2e8f0;
+  padding: 2.8rem;
+  background: #fbfcfe;
   display: flex;
   flex-direction: column;
+  gap: 1.6rem;
+}
+
+#Projects .ps-demo-top {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 }
 
-#Projects .card .tag h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a047e;
-  margin-bottom: 0.5rem;
-  text-transform: capitalize;
-}
-
-#Projects .card .desc {
-  flex: 1;
-  margin-bottom: 1.5rem;
-}
-
-#Projects .card .desc p {
-  font-size: 1.3rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-#Projects .card .btns {
-  display: flex;
-  gap: 1.2rem;
-}
-
-#Projects .card .btn {
-  flex: 1;
-  text-align: center;
-  padding: 1rem 1.5rem;
-  border-radius: 0.8rem;
-  font-size: 1.3rem;
-  color: #fff;
-  background: #2506ad;
-  box-shadow: 0px 4px 10px rgba(48, 68, 247, 0.2);
-  transition: all 0.3s ease;
+#Projects .ps-demo-id {
+  font-size: 1.15rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+#Projects .ps-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#Projects .ps-live-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #10b981;
   display: inline-block;
-  text-decoration: none;
 }
 
-#Projects .card .btn:hover {
-  background: #1a047e;
-  box-shadow: 0px 6px 15px rgba(48, 68, 247, 0.4);
+#Projects .ps-demo-frame {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 36rem;
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  #Projects .box-container {
-    gap: 2rem;
+#Projects .ps-demo-header {
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#Projects .ps-demo-header-title {
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+#Projects .ps-demo-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+#Projects .ps-demo-tab {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#Projects .ps-demo-tab:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+#Projects .ps-demo-tab.is-active {
+  background: #047857;
+  color: #ffffff;
+}
+
+#Projects .ps-demo-body {
+  padding: 2.4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+#Projects .ps-demo-card {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.2rem;
+  padding: 2rem 2.2rem;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+#Projects .ps-demo-badge {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 0.6rem;
+}
+
+#Projects .ps-demo-card-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.9rem;
+}
+
+#Projects .ps-demo-card-desc {
+  font-size: 1.35rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+#Projects .ps-demo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+#Projects .ps-demo-tag {
+  font-size: 1.18rem;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+}
+
+#Projects .ps-demo-footer {
+  padding: 1.2rem 1.8rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.18rem;
+  color: #64748b;
+}
+
+#Projects .ps-demo-footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #047857;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  #Projects .project-showcase {
+    grid-template-columns: 1fr;
   }
-  #Projects .card {
-    width: 100%;
-    max-width: 350px;
+  #Projects .ps-right {
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+  }
+  #Projects .ps-left,
+  #Projects .ps-right {
+    padding: 2.2rem;
+  }
+  #Projects .ps-title {
+    font-size: 2.4rem;
   }
 }
 

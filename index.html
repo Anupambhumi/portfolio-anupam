@@ -179,31 +179,9 @@
     fetch('projects/projects.json')
       .then(response => response.json())
       .then(projects => {
-        const container = document.querySelector('#Projects .box-container');
-        let html = '';
-        projects.forEach(project => {
-          const imgSrc = `assets/images/projects/${project.image}.png`;
-          html += `
-        <div class="card box tilt">
-          <div class="img-area">
-            <img draggable="false" src="${imgSrc}" alt="project" />
-          </div>
-          <div class="content">
-            <div class="tag">
-              <h3>${project.name}</h3>
-            </div>
-            <div class="desc">
-              <p>${project.desc}</p>
-            </div>
-            <div class="btns">
-              <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-              <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-            </div>
-          </div>
-        </div>
-      `;
-        });
-        container.innerHTML = html;
+        if (typeof showProjects === 'function') {
+          showProjects(projects);
+        }
       });
   </script>
 

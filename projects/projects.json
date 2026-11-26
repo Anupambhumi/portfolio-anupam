@@ -1,62 +1,296 @@
 [
   {
-    "name": "EduVista App",
-    "desc": "It's an android app which uses web view component for displaying content. This app provides many different features.",
-    "image": "app",
-    "category": "android",
-    "links": {
-      "view": "",
-      "code": ""
-    }
-  },
-  {
-    "name": "Object-Detection-and-Assisting-for-Blind-individuals",
-    "desc": "Machine Learning, OpenCV, Tensorflow",
-    "image": "Object-detection-Real-world-applications",
-    "category": "ml",
-    "links": {
-      "view": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals",
-      "code": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals"
-    }
-  },
-  {
-    "name": "Portfolio Website",
-    "desc": "Personal Portfolio Website",
-    "image": "port",
+    "id": "P.01",
+    "categoryLabel": "GOVTECH · MIGRATION",
+    "orgLabel": "AICTE · MINISTRY OF EDUCATION, GOI",
+    "name": "PRERANA Portal Revamp",
+    "desc": "Modernized the Government of India's national student leadership portal into a fast, accessible web app.",
+    "problem": "India's national PRERANA student program ran on an aging website that was slow on phones and hard for state and district officers to manage.",
+    "audience": "Students across India applying for the Vadnagar program, plus District & State Education Officers.",
+    "impact": [
+      "Every old government link and bookmark keeps working with zero errors.",
+      "Streamlined bulk registration, gender-balanced shortlisting, and top-20 batch selection."
+    ],
+    "stack": ["React", "Next.js", "REST APIs", "Anuvadini Language Bar", "Responsive UI"],
+    "architecture": "Migrated legacy PHP workflows to a modular React/Next.js frontend with URL redirect preservation, role-based district/state dashboards, and integrated Anuvadini multilingual support.",
+    "image": "prerana",
     "category": "basicweb",
+    "visitLabel": "Visit prerana.education.gov.in",
     "links": {
-      "view": "#",
+      "view": "https://prerana.education.gov.in/",
       "code": ""
+    },
+    "demo": {
+      "headerTitle": "PRERANA · Ministry of Education",
+      "footerLeft": "Movable Anuvadini Language Bar",
+      "footerRight": "Live GoI",
+      "tabs": [
+        {
+          "label": "Student Portal",
+          "badge": "LIVE: PRERANA.EDUCATION.GOV.IN",
+          "title": "9 Value Themes · Class IX–XII",
+          "description": "Experiential residential program in Vadnagar (1888 school) with IIT Gandhinagar curriculum, yoga, maker labs, and student registration.",
+          "tags": ["Swabhiman & Vinay", "Shaurya & Sahas", "Navachar & Jigyasa"]
+        },
+        {
+          "label": "District & State Admin",
+          "badge": "ADMIN WORKFLOW",
+          "title": "Bulk Registration & Shortlisting",
+          "description": "Role-based portal for District and State Education Officers to verify applicants, manage gender-balanced shortlisting, and finalize top-20 batches.",
+          "tags": ["Bulk Verification", "Gender-Balanced Quota", "Batch Selection"]
+        },
+        {
+          "label": "Old PHP → React",
+          "badge": "ZERO-DOWNTIME MIGRATION",
+          "title": "Modernized Architecture",
+          "description": "Replaced legacy server-rendered PHP pages with fast client-side navigation while preserving all existing government URLs and bookmarks.",
+          "tags": ["Legacy Redirects", "Mobile First", "Fast Load"]
+        }
+      ]
     }
   },
   {
-    "name": "AI Powered Logo Recognition System",
-    "desc": "Model to recognize Logo of more than 2000 and trained this model using 2 pictures",
-    "image": "AI-Detection",
+    "id": "P.02",
+    "categoryLabel": "VOICE AI · ACCESSIBILITY",
+    "orgLabel": "AICTE · ANUVADINI FOUNDATION",
+    "name": "Anuvadini IVR",
+    "desc": "Built a multilingual Interactive Voice Response (IVR) and real-time speech translation platform for accessible voice communication across Indian languages.",
+    "problem": "Millions of students and citizens struggle with English-only helplines and web forms, creating a barrier to accessing AICTE and government services over phone calls.",
+    "audience": "Students, parents, and citizens across India calling educational helplines in regional languages.",
+    "impact": [
+      "Enables real-time regional language voice interaction and automated call routing without needing smartphones.",
+      "Supports multilingual ASR, translation, and TTS pipelines for seamless voice-to-voice responses."
+    ],
+    "stack": ["Python", "ASR / TTS", "Speech Translation", "WebSockets", "REST APIs"],
+    "architecture": "Real-time telephony and web voice pipeline combining Automatic Speech Recognition, Neural Machine Translation, and Text-to-Speech synthesis with low-latency audio streaming.",
+    "image": "anuvadini-ivr",
     "category": "ml",
+    "visitLabel": "Visit anuvadiniivr.aicte-india.org",
     "links": {
-      "view": "#",
-      "code": "#"
+      "view": "https://anuvadiniivr.aicte-india.org/",
+      "code": ""
+    },
+    "demo": {
+      "headerTitle": "Anuvadini IVR · AICTE",
+      "footerLeft": "22+ Scheduled Indian Languages",
+      "footerRight": "Live AICTE",
+      "tabs": [
+        {
+          "label": "Voice Pipeline",
+          "badge": "LIVE: ANUVADINIIVR.AICTE-INDIA.ORG",
+          "title": "Multilingual Voice-to-Voice IVR",
+          "description": "Real-time speech recognition, neural translation, and natural voice synthesis enabling callers to interact in their native language.",
+          "tags": ["Speech-to-Text", "Neural Translation", "Text-to-Speech"]
+        },
+        {
+          "label": "Call Routing",
+          "badge": "TELEPHONY & WEB",
+          "title": "Automated Query Resolution",
+          "description": "Intelligent intent detection and dynamic IVR menus that route callers to the right department or answer FAQs automatically.",
+          "tags": ["Intent Routing", "Low Latency", "24/7 Helpline"]
+        },
+        {
+          "label": "Language Support",
+          "badge": "INCLUSIVE ACCESS",
+          "title": "Pan-India Regional Coverage",
+          "description": "Designed for low-bandwidth voice calls so users on basic feature phones can access information effortlessly.",
+          "tags": ["Hindi & Regional", "Feature Phone Ready", "Accessible"]
+        }
+      ]
     }
   },
   {
+    "id": "P.03",
+    "categoryLabel": "AI PLATFORM · BACKEND",
+    "orgLabel": "AICTE · ANUVADINI FOUNDATION",
+    "name": "Anuvadini AI (chatbot)",
+    "desc": "Engineered the scalable AI chatbot backend powering Anuvadini AI's conversational assistant across official government and institutional portals.",
+    "problem": "High volumes of student and institution queries across multiple AICTE portals overwhelmed support teams and needed an instant, embeddable AI assistant.",
+    "audience": "Students, faculty, and institutions visiting AICTE portals, plus internal teams managing knowledge bases.",
+    "impact": [
+      "Powers embeddable AI chat widgets across multiple portals with token-based tenant configuration.",
+      "Delivers fast, context-aware answers with multilingual support and centralized API monitoring."
+    ],
+    "stack": ["Node.js / Python", "FastAPI / Express", "LLM & RAG", "Embeddable Widget", "Docker"],
+    "architecture": "Multi-tenant backend API serving embeddable chat widgets via hostname-scoped tokens, backed by retrieval-augmented generation (RAG) and rate-limited endpoints.",
+    "image": "aicte-chatbot",
+    "category": "mern",
+    "visitLabel": "Visit chatbot-backend.aicte-india.org",
+    "links": {
+      "view": "https://chatbot-backend.aicte-india.org/",
+      "code": ""
+    },
+    "demo": {
+      "headerTitle": "Anuvadini AI · Chatbot",
+      "footerLeft": "Embeddable Multi-Portal Widget",
+      "footerRight": "Live AICTE",
+      "tabs": [
+        {
+          "label": "RAG & API",
+          "badge": "LIVE: CHATBOT-BACKEND.AICTE-INDIA.ORG",
+          "title": "Conversational AI Engine",
+          "description": "Processes natural language queries using retrieval-augmented generation to provide accurate answers from official AICTE documents.",
+          "tags": ["RAG Pipeline", "Context-Aware", "REST / Streaming"]
+        },
+        {
+          "label": "Multi-Portal Embed",
+          "badge": "TENANT TOKENS",
+          "title": "One-Line Script Integration",
+          "description": "Secure hostname-scoped token authentication allowing portals like Prerana and partner sites to embed the assistant.",
+          "tags": ["Token Auth", "CORS Scoped", "Plug & Play"]
+        },
+        {
+          "label": "Scale & Reliability",
+          "badge": "PRODUCTION BACKEND",
+          "title": "High-Throughput Query Handling",
+          "description": "Optimized request queuing, caching, and structured logging to keep response times fast under peak admission traffic.",
+          "tags": ["Low Latency", "Caching", "Monitoring"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "P.04",
+    "categoryLabel": "WEB APP · MEDIA",
+    "orgLabel": "PERSONAL PROJECT",
     "name": "Subtitle Editor for Video",
     "desc": "A web-based subtitle editor for videos with timeline editing, sync controls, and export support.",
+    "problem": "Editing video subtitles manually in raw SRT/VTT files is error-prone and makes timing adjustments tedious.",
+    "audience": "Content creators, educators, and localization teams needing fast browser-based caption editing.",
+    "impact": [
+      "Interactive timeline and real-time video preview sync for accurate caption timing.",
+      "Clean export workflow supporting standard subtitle formats."
+    ],
+    "stack": ["React", "JavaScript", "HTML5 Video API", "CSS3"],
+    "architecture": "Client-side React application synchronizing HTML5 video playback timestamps with an editable subtitle cue list and SRT/VTT parser.",
     "image": "subtitle-editor",
     "category": "basicweb",
+    "visitLabel": "View Project",
     "links": {
       "view": "https://github.com/Anupambhumi/subtitle-editor-frontend",
       "code": "https://github.com/Anupambhumi/subtitle-editor-frontend"
+    },
+    "demo": {
+      "headerTitle": "Subtitle Editor · Web App",
+      "footerLeft": "Timeline Sync & Export",
+      "footerRight": "GitHub",
+      "tabs": [
+        {
+          "label": "Timeline Editor",
+          "badge": "SOURCE: GITHUB",
+          "title": "Frame-Accurate Cue Editing",
+          "description": "Edit subtitle text, start/end timestamps, and preview captions directly over the video player in real time.",
+          "tags": ["Timeline Sync", "Live Preview", "SRT / VTT"]
+        }
+      ]
     }
   },
   {
+    "id": "P.05",
+    "categoryLabel": "WEB APP · OPERATIONS",
+    "orgLabel": "PERSONAL PROJECT",
     "name": "Workforce Tracking System",
     "desc": "An employee attendance and workforce management system for tracking tasks, shifts, and productivity.",
+    "problem": "Manual attendance sheets and scattered task trackers make shift scheduling and productivity monitoring difficult for growing teams.",
+    "audience": "Team leads, HR managers, and employees tracking daily attendance and assigned tasks.",
+    "impact": [
+      "Centralizes shift tracking, attendance logs, and task assignments in one dashboard.",
+      "Reduces manual reporting overhead with clear status visibility."
+    ],
+    "stack": ["JavaScript", "React / Web", "REST API", "Dashboard UI"],
+    "architecture": "Modular web dashboard with role-based views for attendance check-ins, shift rosters, and task progress tracking.",
     "image": "workforce-tracking",
     "category": "basicweb",
+    "visitLabel": "View Project",
     "links": {
       "view": "https://github.com/Anupambhumi/workforce-tracking-system",
       "code": "https://github.com/Anupambhumi/workforce-tracking-system"
+    },
+    "demo": {
+      "headerTitle": "Workforce Tracker · Dashboard",
+      "footerLeft": "Attendance & Shift Management",
+      "footerRight": "GitHub",
+      "tabs": [
+        {
+          "label": "Dashboard",
+          "badge": "SOURCE: GITHUB",
+          "title": "Attendance & Shift Tracking",
+          "description": "Manage employee check-ins, shift schedules, and daily task completion from a unified management interface.",
+          "tags": ["Attendance Logs", "Shift Scheduling", "Task Tracking"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "P.06",
+    "categoryLabel": "COMPUTER VISION · ML",
+    "orgLabel": "ACCESSIBILITY · ML PROJECT",
+    "name": "Object Detection for Blind Individuals",
+    "desc": "Real-time object detection and audio assistance system built with OpenCV and TensorFlow.",
+    "problem": "Visually impaired individuals face daily navigation hazards when obstacles in their immediate surroundings go undetected.",
+    "audience": "Visually impaired users seeking real-time auditory awareness of nearby objects.",
+    "impact": [
+      "Detects everyday objects in real time from camera feeds using TensorFlow and OpenCV.",
+      "Converts spatial detections into clear spoken cues for hands-free assistance."
+    ],
+    "stack": ["Python", "TensorFlow", "OpenCV", "Computer Vision"],
+    "architecture": "Real-time video capture pipeline running pre-trained object detection models with audio feedback synthesis.",
+    "image": "Object-detection-Real-world-applications",
+    "category": "ml",
+    "visitLabel": "View Project",
+    "links": {
+      "view": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals",
+      "code": "https://github.com/shashimehta03/Object-Detection-and-Assisting-for-Blind-individuals"
+    },
+    "demo": {
+      "headerTitle": "Assistive Vision · ML",
+      "footerLeft": "OpenCV + TensorFlow Pipeline",
+      "footerRight": "GitHub",
+      "tabs": [
+        {
+          "label": "Detection Model",
+          "badge": "COMPUTER VISION",
+          "title": "Real-Time Object Recognition",
+          "description": "Identifies surrounding objects from live camera frames and announces them to assist safe navigation.",
+          "tags": ["OpenCV", "TensorFlow", "Audio Cues"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "P.07",
+    "categoryLabel": "ANDROID · MOBILE",
+    "orgLabel": "MOBILE APP",
+    "name": "EduVista App",
+    "desc": "An Android application using WebView components to deliver educational content and multi-feature student tools.",
+    "problem": "Students needed a lightweight, unified Android app to access educational resources without switching between browser tabs.",
+    "audience": "Students accessing curated learning portals and study resources on Android devices.",
+    "impact": [
+      "Packages web-based learning modules into a native Android experience.",
+      "Provides smooth navigation and quick access to educational tools."
+    ],
+    "stack": ["Android", "Java / Kotlin", "WebView"],
+    "architecture": "Native Android wrapper with custom WebView configuration, navigation controls, and offline-friendly error handling.",
+    "image": "app",
+    "category": "android",
+    "visitLabel": "Mobile App",
+    "links": {
+      "view": "",
+      "code": ""
+    },
+    "demo": {
+      "headerTitle": "EduVista · Android",
+      "footerLeft": "WebView Educational App",
+      "footerRight": "Android",
+      "tabs": [
+        {
+          "label": "App Overview",
+          "badge": "ANDROID APPLICATION",
+          "title": "Unified Student Learning App",
+          "description": "Delivers responsive educational portals inside a native Android shell with streamlined navigation.",
+          "tags": ["Android", "WebView", "Student Portal"]
+        }
+      ]
     }
   }
 ]

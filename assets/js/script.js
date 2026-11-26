@@ -181,39 +181,167 @@ function showSkills(skills) {
 function showProjects(projects) {
     let projectsContainer = document.querySelector("#Projects .box-container");
     if (!projectsContainer) return;
+
+    const escapeHtml = (str) => String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
     let projectHTML = "";
-    projects.forEach(project => {
+    projects.forEach((project, idx) => {
+        const idLabel = project.id || `P.0${idx + 1}`;
+        const categoryLabel = project.categoryLabel || (project.category ? project.category.toUpperCase() : "PROJECT");
+        const orgLabel = project.orgLabel || "PORTFOLIO";
+        const impactItems = Array.isArray(project.impact)
+            ? project.impact.map(item => `<li>${escapeHtml(item)}</li>`).join("")
+            : "";
+        const stackItems = Array.isArray(project.stack)
+            ? project.stack.map(tech => `<span class="ps-stack-pill">${escapeHtml(tech)}</span>`).join("")
+            : "";
+
+        const demo = project.demo || {};
+        const tabs = Array.isArray(demo.tabs) && demo.tabs.length > 0 ? demo.tabs : [
+            {
+                label: "Overview",
+                badge: project.links && project.links.view ? "LIVE PROJECT" : "PROJECT PREVIEW",
+                title: project.name,
+                description: project.desc,
+                tags: Array.isArray(project.stack) ? project.stack.slice(0, 3) : []
+            }
+        ];
+        const firstTab = tabs[0];
+        const tabsHtml = tabs.map((tab, tIdx) => `
+            <button type="button" class="ps-demo-tab${tIdx === 0 ? " is-active" : ""}" data-project-idx="${idx}" data-tab-idx="${tIdx}">
+                ${escapeHtml(tab.label)}
+            </button>
+        `).join("");
+        const firstTagsHtml = (firstTab.tags || []).map(tag => `<span class="ps-demo-tag">${escapeHtml(tag)}</span>`).join("");
+
+        const viewUrl = project.links && project.links.view ? project.links.view : "";
+        const codeUrl = project.links && project.links.code ? project.links.code : "";
+        const visitText = project.visitLabel || "Visit Project";
+
         projectHTML += `
-        <div class="card box tilt">
-            <div class="img-area">
-                <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+        <article class="project-showcase" data-project-idx="${idx}">
+            <div class="ps-left">
+                <div class="ps-meta">
+                    <span>${escapeHtml(categoryLabel)}</span>
+                    <span>${escapeHtml(orgLabel)}</span>
+                </div>
+                <h3 class="ps-title">${escapeHtml(project.name)}</h3>
+                <p class="ps-lead">${escapeHtml(project.desc)}</p>
+
+                ${project.problem ? `
+                <div class="ps-block">
+                    <span class="ps-label">THE PROBLEM</span>
+                    <p class="ps-text">${escapeHtml(project.problem)}</p>
+                </div>` : ""}
+
+                ${project.audience ? `
+                <div class="ps-block">
+                    <span class="ps-label">WHO USES IT</span>
+                    <p class="ps-text">${escapeHtml(project.audience)}</p>
+                </div>` : ""}
+
+                ${impactItems ? `
+                <div class="ps-block">
+                    <span class="ps-label">RESULT &amp; IMPACT</span>
+                    <ul class="ps-impact">${impactItems}</ul>
+                </div>` : ""}
+
+                ${(stackItems || project.architecture) ? `
+                <div class="ps-accordion">
+                    <button type="button" class="ps-accordion-btn" aria-expanded="false">
+                        <span class="ps-accordion-btn-left">
+                            <span>&lt;/&gt; <strong>For developers</strong></span>
+                            <span class="ps-accordion-sub">&middot; STACK &amp; ARCHITECTURE</span>
+                        </span>
+                        <i class="fas fa-chevron-down ps-accordion-icon"></i>
+                    </button>
+                    <div class="ps-accordion-body">
+                        ${project.architecture ? `<p class="ps-arch-text">${escapeHtml(project.architecture)}</p>` : ""}
+                        ${stackItems ? `<div class="ps-stack-list">${stackItems}</div>` : ""}
+                    </div>
+                </div>` : ""}
+
+                <div class="ps-actions">
+                    ${viewUrl && viewUrl !== "#" ? `
+                    <a href="${escapeHtml(viewUrl)}" class="ps-btn-primary" target="_blank" rel="noopener noreferrer">
+                        ${escapeHtml(visitText)} <span aria-hidden="true">&#8599;</span>
+                    </a>` : ""}
+                    ${codeUrl && codeUrl !== "#" && codeUrl !== viewUrl ? `
+                    <a href="${escapeHtml(codeUrl)}" class="ps-btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code"></i> Source Code
+                    </a>` : ""}
+                </div>
             </div>
-            <div class="content">
-                <div class="tag">
-                    <h3>${project.name}</h3>
+
+            <div class="ps-right">
+                <div class="ps-demo-top">
+                    <span class="ps-demo-id">${escapeHtml(idLabel)} &middot; INTERACTIVE DEMO</span>
+                    <span class="ps-live-badge"><span class="ps-live-dot"></span> ${escapeHtml(demo.footerRight || "Live")}</span>
                 </div>
-                <div class="desc">
-                    <p>${project.desc}</p>
-                </div>
-                <div class="btns">
-                    <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                    <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+
+                <div class="ps-demo-frame">
+                    <div class="ps-demo-header">
+                        <span class="ps-demo-header-title">${escapeHtml(demo.headerTitle || project.name)}</span>
+                        <div class="ps-demo-tabs">${tabsHtml}</div>
+                    </div>
+
+                    <div class="ps-demo-body">
+                        <div class="ps-demo-card">
+                            <div class="ps-demo-badge">${escapeHtml(firstTab.badge || "")}</div>
+                            <h4 class="ps-demo-card-title">${escapeHtml(firstTab.title || "")}</h4>
+                            <p class="ps-demo-card-desc">${escapeHtml(firstTab.description || "")}</p>
+                            <div class="ps-demo-tags">${firstTagsHtml}</div>
+                        </div>
+                    </div>
+
+                    <div class="ps-demo-footer">
+                        <span>${escapeHtml(demo.footerLeft || project.name)}</span>
+                        <span class="ps-demo-footer-status"><span class="ps-live-dot"></span> ${escapeHtml(demo.footerRight || "Live")}</span>
+                    </div>
                 </div>
             </div>
-        </div>`
+        </article>`;
     });
+
     projectsContainer.innerHTML = projectHTML;
 
-    // <!-- tilt js effect starts -->
-    if (typeof VanillaTilt !== "undefined") {
-        VanillaTilt.init(document.querySelectorAll(".tilt"), {
-            max: 15,
-        });
-    }
-    // <!-- tilt js effect ends -->
+    projectsContainer.onclick = (e) => {
+        const accBtn = e.target.closest(".ps-accordion-btn");
+        if (accBtn) {
+            const acc = accBtn.closest(".ps-accordion");
+            const isOpen = acc.classList.toggle("is-open");
+            accBtn.setAttribute("aria-expanded", String(isOpen));
+            return;
+        }
+
+        const tabBtn = e.target.closest(".ps-demo-tab");
+        if (tabBtn) {
+            const pIdx = Number(tabBtn.getAttribute("data-project-idx"));
+            const tIdx = Number(tabBtn.getAttribute("data-tab-idx"));
+            const project = projects[pIdx];
+            if (!project || !project.demo || !project.demo.tabs || !project.demo.tabs[tIdx]) return;
+
+            const card = tabBtn.closest(".project-showcase");
+            card.querySelectorAll(".ps-demo-tab").forEach(btn => btn.classList.remove("is-active"));
+            tabBtn.classList.add("is-active");
+
+            const tab = project.demo.tabs[tIdx];
+            const demoCard = card.querySelector(".ps-demo-card");
+            demoCard.querySelector(".ps-demo-badge").textContent = tab.badge || "";
+            demoCard.querySelector(".ps-demo-card-title").textContent = tab.title || "";
+            demoCard.querySelector(".ps-demo-card-desc").textContent = tab.description || "";
+            demoCard.querySelector(".ps-demo-tags").innerHTML = (tab.tags || [])
+                .map(tag => `<span class="ps-demo-tag">${escapeHtml(tag)}</span>`)
+                .join("");
+        }
+    };
 
     if (window.srtop) {
-        window.srtop.reveal('.Projects .box', { interval: 200 });
+        window.srtop.reveal('.Projects .project-showcase', { interval: 150 });
     }
 }
 
