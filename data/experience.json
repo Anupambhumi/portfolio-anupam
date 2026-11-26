@@ -1,0 +1,20 @@
+[
+  {
+    "role": "Software Engineer",
+    "company": "Anuvadini Foundation",
+    "type": "Full-time",
+    "start": "2026-02",
+    "end": null,
+    "location": "New Delhi, India · On-site",
+    "logo": "/assets/images/anu.png"
+  },
+  {
+    "role": "Software Developer Intern",
+    "company": "All India Council for Technical Education (AICTE)",
+    "type": "Internship",
+    "start": "2025-07",
+    "end": "2026-01",
+    "location": "New Delhi, India · On-site",
+    "logo": "/assets/images/aicte.png"
+  }
+]

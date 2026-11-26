@@ -1,0 +1,23 @@
+[
+  {
+    "degree": "Bachelor of Engineering in Computer Science",
+    "school": "Chandigarh University",
+    "board": "CU",
+    "period": "2021 – 2025",
+    "image": "/assets/images/Campus_of_Chandigarh_University.jpg"
+  },
+  {
+    "degree": "Senior Secondary (Science)",
+    "school": "Kshatriya High School",
+    "board": "BSEB",
+    "period": "2019 – 2021",
+    "image": "/assets/images/OIP (1).jpeg"
+  },
+  {
+    "degree": "Secondary (Science)",
+    "school": "Keshav Saraswati Vidya Mandir",
+    "board": "CBSE",
+    "period": "2018 – 2019",
+    "image": "/assets/images/ksvm.jpg"
+  }
+]
