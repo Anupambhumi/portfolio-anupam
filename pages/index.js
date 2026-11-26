@@ -97,7 +97,7 @@ export default function Home({ profile, experience, projects, skills, publicatio
           <SectionHeading eyebrow="Work" title="Selected projects">
             A few things I&apos;ve built across web, machine learning and Android.
           </SectionHeading>
-          <div className="grid grid-3">
+          <div className="showcase-stack">
             {projects.slice(0, 3).map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}

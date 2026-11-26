@@ -50,32 +50,157 @@ export function TypedText({ words }) {
 }
 
 export function ProjectCard({ project, reveal = true }) {
+  const [activeTab, setActiveTab] = useState(0);
+  const [archOpen, setArchOpen] = useState(false);
+
+  const demo = project.demo || {};
+  const tabs =
+    Array.isArray(demo.tabs) && demo.tabs.length > 0
+      ? demo.tabs
+      : [
+          {
+            label: 'Overview',
+            badge: project.links?.view ? 'LIVE PROJECT' : 'PROJECT PREVIEW',
+            title: project.name,
+            description: project.description,
+            tags: (project.stack || []).slice(0, 3),
+          },
+        ];
+  const currentTab = tabs[activeTab] || tabs[0];
+
   return (
-    <article className={`card project-card${reveal ? ' reveal' : ''} cat-${project.category}`}>
-      <div className="project-media">
-        <Image
-          src={project.image}
-          alt={`${project.name} screenshot`}
-          fill
-          sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 360px"
-        />
-        <span className="chip chip-floating chip-cat">{project.categoryLabel}</span>
-      </div>
-      <div className="project-body">
-        <h3>{project.name}</h3>
-        <p className="muted">{project.description}</p>
-        <div className="project-links">
-          {project.links.view && (
-            <a href={project.links.view} target="_blank" rel="noreferrer" className="link-btn">
-              <i className="fas fa-external-link-alt" aria-hidden="true" /> View
+    <article className={`project-showcase${reveal ? ' reveal' : ''} cat-${project.category}`}>
+      <div className="ps-left">
+        <div className="ps-meta">
+          <span>{project.showcaseCategory || project.categoryLabel}</span>
+          {project.orgLabel && <span>{project.orgLabel}</span>}
+        </div>
+        <h3 className="ps-title">{project.name}</h3>
+        <p className="ps-lead">{project.description}</p>
+
+        {project.problem && (
+          <div className="ps-block">
+            <span className="ps-label">THE PROBLEM</span>
+            <p className="ps-text">{project.problem}</p>
+          </div>
+        )}
+
+        {project.audience && (
+          <div className="ps-block">
+            <span className="ps-label">WHO USES IT</span>
+            <p className="ps-text">{project.audience}</p>
+          </div>
+        )}
+
+        {project.impact?.length > 0 && (
+          <div className="ps-block">
+            <span className="ps-label">RESULT &amp; IMPACT</span>
+            <ul className="ps-impact">
+              {project.impact.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {(project.stack?.length > 0 || project.architecture) && (
+          <div className={`ps-accordion${archOpen ? ' is-open' : ''}`}>
+            <button
+              type="button"
+              className="ps-accordion-btn"
+              aria-expanded={archOpen}
+              onClick={() => setArchOpen((v) => !v)}
+            >
+              <span className="ps-accordion-btn-left">
+                <span>
+                  &lt;/&gt; <strong>For developers</strong>
+                </span>
+                <span className="ps-accordion-sub">· STACK &amp; ARCHITECTURE</span>
+              </span>
+              <i className="fas fa-chevron-down ps-accordion-icon" aria-hidden="true" />
+            </button>
+            {archOpen && (
+              <div className="ps-accordion-body">
+                {project.architecture && <p className="ps-arch-text">{project.architecture}</p>}
+                {project.stack?.length > 0 && (
+                  <div className="ps-stack-list">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="ps-stack-pill">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="ps-actions">
+          {project.links?.view && (
+            <a href={project.links.view} target="_blank" rel="noreferrer" className="ps-btn-primary">
+              {project.visitLabel || 'Visit Project'} <span aria-hidden="true">&#8599;</span>
             </a>
           )}
-          {project.links.code && (
-            <a href={project.links.code} target="_blank" rel="noreferrer" className="link-btn">
+          {project.links?.code && project.links.code !== project.links.view && (
+            <a href={project.links.code} target="_blank" rel="noreferrer" className="ps-btn-secondary">
               <i className="fab fa-github" aria-hidden="true" /> Code
             </a>
           )}
-          {!project.links.view && !project.links.code && <span className="muted small">Private project</span>}
+          {!project.links?.view && !project.links?.code && <span className="muted small">Private project</span>}
+        </div>
+      </div>
+
+      <div className="ps-right">
+        <div className="ps-demo-top">
+          <span className="ps-demo-id">{project.codeId || `P.0${project.id}`} · INTERACTIVE DEMO</span>
+          <span className="ps-live-badge">
+            <span className="ps-live-dot" aria-hidden="true" /> {demo.footerRight || 'Live'}
+          </span>
+        </div>
+
+        <div className="ps-demo-frame">
+          <div className="ps-demo-header">
+            <span className="ps-demo-header-title">{demo.headerTitle || project.name}</span>
+            <div className="ps-demo-tabs" role="tablist" aria-label={`${project.name} views`}>
+              {tabs.map((tab, idx) => (
+                <button
+                  key={tab.label}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === idx}
+                  className={`ps-demo-tab${activeTab === idx ? ' is-active' : ''}`}
+                  onClick={() => setActiveTab(idx)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="ps-demo-body">
+            <div className="ps-demo-card">
+              <div className="ps-demo-badge">{currentTab.badge}</div>
+              <h4 className="ps-demo-card-title">{currentTab.title}</h4>
+              <p className="ps-demo-card-desc">{currentTab.description}</p>
+              {currentTab.tags?.length > 0 && (
+                <div className="ps-demo-tags">
+                  {currentTab.tags.map((tag) => (
+                    <span key={tag} className="ps-demo-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="ps-demo-footer">
+            <span>{demo.footerLeft || project.name}</span>
+            <span className="ps-demo-footer-status">
+              <span className="ps-live-dot" aria-hidden="true" /> {demo.footerRight || 'Live'}
+            </span>
+          </div>
         </div>
       </div>
     </article>
